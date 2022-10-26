@@ -1,0 +1,12 @@
+body{
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+.card-title{
+    color: rgb(69, 104, 249);
+}
+.modal-title{
+    color: rgb(69, 104, 249);
+}

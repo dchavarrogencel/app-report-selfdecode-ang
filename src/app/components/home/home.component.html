@@ -1,0 +1,51 @@
+
+<div class="card text-center ">
+  <div class="card-header">
+    <app-header titulo="{{'paginas.principal.titulo' | translate }}" (eventIdioma)="onClickActualizarIdioma($event)">
+    </app-header>
+  </div>
+  <div class="card-body">
+    <div class="alert alert-warning" role="alert" *ngIf="lstReports.length==0">
+      {{ "paginas.principal.mensaje-no-tiene-registro" | translate }}
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" *ngFor="let item of lstReports">
+        <div class="card" style="border-color: {{item.color}}">
+          <div class="card-header">
+            <h5 class="card-title">{{ item.text_header}}</h5>
+            <h5 class="card-subtitle mb-2 text-muted">{{ item.name }}</h5>
+          </div>
+          <div class="card-body">
+            <img class="card-img-top" [src]="item.image | noimage"/>
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" (click)="onClickDetailModal(item)">
+                {{ 'paginas.principal.boton-detalle-reporte' | translate }}
+              </button>
+
+              <button type="button" class="btn btn-outline-primary" [disabled]="item.status != 'completed'"
+                (click)="onClickRecomendacion(item.idProfileReport)">{{
+                'paginas.principal.boton-recomendacion' | translate }}</button>
+
+              <button type="button" class="btn btn-outline-primary" [disabled]="item.status != 'completed'"
+                (click)="onClickRecomendacionPerfil(item.idProfileReport)" style="margin: 3;">{{
+                'paginas.principal.boton-recomendacion-trait' | translate }}</button>
+
+              <button type="button" class="btn btn-outline-primary" [disabled]="item.status != 'completed'" (click)="onClickRasgoPerfil(item.idProfileReport)"
+                style="margin: 4;">{{
+                'paginas.principal.boton-profile-trait' | translate }}</button>
+
+              <app-dialog [report]="report" title="{{'paginas.principal.detalle-reporte-modal' | translate }}">
+              </app-dialog>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    <app-footer></app-footer>
+  </div>
+</div>

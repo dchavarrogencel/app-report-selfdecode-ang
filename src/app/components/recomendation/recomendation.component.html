@@ -1,0 +1,29 @@
+<div class="card text-center">
+    <div class="card-header">
+      <app-header titulo="{{'paginas.recomendacion.titulo' | translate }}" (eventIdioma)="onClickActualizarIdioma($event)" nameButtonBack="{{
+        'paginas.comunes.volver-inicio' | translate }}"></app-header>
+    </div>
+    <div class="card-body">
+      <div class="alert alert-warning" role="alert" *ngIf="lstRecomendations.length==0">
+        {{ "paginas.recomendacion.mensaje-no-tiene-registro" | translate }}
+      </div>
+      <div class="row">
+        <div
+          class="col-lg-3 col-md-3 col-sm-12 col-xs-12"
+          *ngFor="let item of lstRecomendations"
+        >
+          <app-cards
+            titulo="{{ item.recommendation.sentence }}"
+            subtitle="{{ item.recommendation.slug }}"
+            descripcion="{{ item.recommendation.generic_text }}"
+            [responseRecomendation]="item"
+          ></app-cards>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer text-muted">
+      <app-footer titulo=" {{ 'paginas.recomendacion.pie-pagina' | translate }}"></app-footer>
+    </div>
+  </div>
+  
+  

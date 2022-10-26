@@ -1,0 +1,82 @@
+{
+  "paginas": {
+    "principal": {
+      "titulo": "Examenes de auto decodificar",
+      "boton-recomendacion": "Ver recomendación",
+      "boton-recomendacion-trait": "Ver recomendación de perfil",
+      "boton-profile-trait": "Ver rasgo de perfil",
+      "mensaje-no-tiene-registro":"No tiene reportes",
+      "boton-detalle-reporte": "Ver detalle reporte",
+      "detalle-reporte-modal": "Detalle reporte",
+      "area": "area",
+      "tipo-reporte": "Tipo de reporte",
+      "estado":"Estado" 
+    },
+    "recomendacion": {
+      "titulo": "Recomendación de perfil",
+      "boton": "",
+      "mensaje-no-tiene-registro":"No tiene recomendaciones",
+      "tipo-recomendacion":"Tipo de recomendación",
+      "puntaje-total":"Puntaje total",
+      "efecto":"Efecto",
+      "evidencia":"Evidencia"
+    },
+    "recomendacion-perfil": {
+      "titulo": "Rasgo de recomendación de perfil",
+      "boton": "",
+      "mensaje-no-tiene-registro":"No tiene recomendaciones del perfil",
+      "condiciones-satisfechas": "Condiciones satisfechas",
+      "boton-ver-condiciones": "Ver condiciones satisfechas",
+      "puntaje-total":"Puntaje total",
+      "efecto":"Efecto",
+      "evidencia":"Evidencia",
+      "puntacion-inicial":"Puntación inicial",
+      "puntaje":"Puntaje",
+      "prioridad":"Prioridad",
+      "tipo-condicion":"Tipo de condición",
+      "geno-tipo": "Genotipo"
+    },
+    "rasgo-perfil": {
+      "titulo": "Rasgo de perfil",
+      "boton": "",
+      "mensaje-no-tiene-registro":"No tiene rasgo de perfil",
+      "opciones-retroalimentacion": "Opciones de retroalimentación",
+      "boton-opciones-retroalimentacion": "Ver opciones de retroalimentación",
+      "boton-rasgo": "Ver detalle rasgo",
+      "detalle-rasgo": "Detalle rasgo",
+      "boton-descargo-responsabilidad": "Ver descargo de responsabilidad",
+      "descargo-responsabilidad": "Descargo de responsabilidad",
+      "boton-etiqueta-calibre": "Ver etiqueta calibre",
+      "etiqueta-calibre": "Etiqueta calibre",
+      "variantes-geneticas": "Variantes geneticas",
+      "pregunta-retroalimentacion":"Pregunta de retroalimentación",
+      "tipo-modelo":"Tipo de modelo",
+      "tipo-estadistica":"Tipo de estadistica",
+      "tipo-calibre": "Tipo de calibre",
+      "tipo-rango-calibre": "Tipo de rango de calibre",
+      "direccion-calibre": "Dirección de calibre",
+      "tabla-opciones-retroalimentacion":{
+        "id": "Identificación",
+        "texto-respuesta": "Texto de respuesta",
+        "orden-visualizacion": "Orden de visualización",
+        "puntacion-de": "Puntuación de",
+        "puntacion-a": "Puntación a",
+        "identificacion-escenario": "Identificación del escenario"
+      },
+      "tabla-etiquetas-calibre":{
+        "id": "Identificación",
+        "texto": "Etiqueta de texto",
+        "color": "Color",
+        "orden-visualizacion": "Orden de visualización",
+        "puntacion-de": "Puntuación de",
+        "puntacion-a": "Puntación a",
+        "identificacion-escenario": "Identificación del escenario"
+      }
+    },
+    "comunes":{
+      "boton-cerrar": "Cerrar",
+      "volver-inicio": "Volver inicio",
+      "pie-pagina": "Gencell Pharma Ⓒ 2022. Todos los derechos reservados."
+    }
+  }
+}

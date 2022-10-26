@@ -1,0 +1,33 @@
+{
+  "paginas": {
+    "principal": {
+      "titulo": "מבחנים בפענוח עצמי",
+      "boton-recomendacion": "Ver המלצה",
+      "boton-recomendacion-trait": "המלצה על תכונה",
+      "boton-profile-trait": "תכונת פרופיל",
+      "pie-pagina": "דף כותרת תחתונה",
+      "volver-inicio": "בבית"
+    },
+    "recomendacion": {
+      "titulo": "המלצה",
+      "boton": "",
+      "pie-pagina": "כותרת תחתונה",
+      "mensaje-no-tiene-registro":"אין המלצות"
+    },
+    "recomendacion-perfil": {
+      "titulo": "המלצה על תכונה",
+      "boton": "",
+      "pie-pagina": "כותרת תחתונה",
+      "mensaje-no-tiene-registro":"אין לך המלצות על פרופיל"
+    },
+    "rasgo-perfil": {
+      "titulo": "תכונת פרופיל",
+      "boton": "",
+      "pie-pagina": "כותרת תחתונה",
+      "mensaje-no-tiene-registro":"אין לו תכונת פרופיל"
+    },
+    "comunes":{
+      "volver-inicio": "בבית"
+    }
+  }
+}

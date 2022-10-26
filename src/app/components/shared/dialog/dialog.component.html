@@ -1,0 +1,35 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ title }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       
+        <form class="form-floating">
+          <input disabled type="email" class="form-control" id="floatingInputValue"  [value]="report.report_type">
+          <label for="floatingInputValue">{{ 'paginas.principal.tipo-reporte' |
+            translate }}</label>
+        </form>
+        <form class="form-floating" *ngIf="report.status">
+          <input disabled type="text" class="form-control" id="floatingInputValue"
+            [value]="report.status">
+          <label for="floatingInputValue">{{ 'paginas.principal.estado' |
+            translate }}</label>
+        </form>
+       
+        <p [innerHTML]="report.text"></p>
+        <select disabled id="seleGV" class="form-select" multiple *ngFor="let item of report?.area">
+          <option selected>{{ 'paginas.principal.area' |
+            translate }}</option>
+          <option value="{{item}}">{{ item }}</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ "paginas.comunes.boton-cerrar" |
+          translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>

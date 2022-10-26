@@ -1,0 +1,352 @@
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-title">{{ titulo }}</h5>
+    <h5 class="card-subtitle mb-2 text-muted">{{ subtitle }}</h5>
+  </div>
+  <div class="card-body">
+    <form class="form-floating" *ngIf="responseRecomendation.recommendation.recommendation_type">
+      <input disabled type="email" class="form-control" id="floatingInputValue"
+        [value]="responseRecomendation.recommendation.recommendation_type">
+      <label for="floatingInputValue">{{ 'paginas.recomendacion.tipo-recomendacion' |
+        translate }}</label>
+    </form>
+    <img class="card-img-top" src="{{ image }}" />
+    <p class="card-text" [innerHTML]="descripcion"></p>
+    <form class="form-floating" *ngIf="responseRecomendation.total_score">
+      <input disabled type="email" class="form-control" id="floatingInputValue"
+        [value]="responseRecomendation.total_score">
+      <label for="floatingInputValue">{{ 'paginas.recomendacion.puntaje-total' |
+        translate }}</label>
+    </form>
+    <form class="form-floating" *ngIf="responseRecomendation.effect">
+      <input disabled type="email" class="form-control" id="floatingInputValue1"
+        [value]="responseRecomendation.effect">
+      <label for="floatingInputValue1">{{ 'paginas.recomendacion.efecto' |
+        translate }}</label>
+    </form>
+    <form class="form-floating" *ngIf="responseRecomendation.evidence">
+      <input disabled type="email" class="form-control" id="floatingInputValue2"
+        [value]="responseRecomendation.evidence">
+      <label for="floatingInputValue2">{{ 'paginas.recomendacion.evidencia' |
+        translate }}</label>
+    </form>
+
+    <form class="form-floating" *ngIf="responseRecomendationTrait?.recommendation_trait?.initial_score">
+      <input disabled type="email" class="form-control" id="floatingInputValue2"
+        [value]="responseRecomendationTrait?.recommendation_trait?.initial_score">
+      <label for="floatingInputValue2">{{ 'paginas.recomendacion-perfil.puntacion-inicial' |
+        translate }}</label>
+    </form>
+    <form class="form-floating" *ngIf="responseRecomendationTrait?.total_score">
+      <input disabled type="email" class="form-control" id="floatingInputValue"
+        [value]="responseRecomendationTrait?.total_score">
+      <label for="floatingInputValue">{{ 'paginas.recomendacion-perfil.puntaje-total' |
+        translate }}</label>
+    </form>
+    <form class="form-floating" *ngIf="responseRecomendationTrait?.recommendation_trait?.effect">
+      <input disabled type="email" class="form-control" id="floatingInputValue1"
+        [value]="responseRecomendationTrait?.recommendation_trait?.effect">
+      <label for="floatingInputValue1">{{ 'paginas.recomendacion-perfil.efecto' |
+        translate }}</label>
+    </form>
+    <form class="form-floating" *ngIf="responseRecomendationTrait?.recommendation_trait?.evidence">
+      <input disabled type="email" class="form-control" id="floatingInputValue2"
+        [value]="responseRecomendationTrait?.recommendation_trait?.evidence">
+      <label for="floatingInputValue2">{{ 'paginas.recomendacion-perfil.evidencia' |
+        translate }}</label>
+    </form>
+  </div>
+  <div class="card-footer"
+    *ngIf="(responseRecomendationTrait?.satisfied_conditions?.length != undefined && responseRecomendationTrait?.satisfied_conditions?.length != 0) || (reponseProfileTrait?.trait?.feedback_choices?.length != undefined && reponseProfileTrait?.trait?.feedback_choices?.length != 0) || (reponseProfileTrait?.trait?.text != undefined) && (reponseProfileTrait?.trait?.disclaimer != undefined) || (reponseProfileTrait?.trait?.gauge_labels?.length != undefined && reponseProfileTrait?.trait?.gauge_labels?.length != 0)">
+    <div class="row">
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+        *ngIf="responseRecomendationTrait?.satisfied_conditions?.length != undefined && responseRecomendationTrait?.satisfied_conditions?.length != 0"
+        data-bs-target="#dialogCondiciones">
+        {{ 'paginas.recomendacion-perfil.boton-ver-condiciones' |
+        translate }}
+      </button>
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+        *ngIf="reponseProfileTrait?.trait?.text != undefined" data-bs-target="#dialogRasgo">
+        {{ 'paginas.rasgo-perfil.boton-rasgo' |
+        translate }}
+      </button>
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+        *ngIf="reponseProfileTrait?.trait?.feedback_choices?.length != undefined && reponseProfileTrait?.trait?.feedback_choices?.length != 0"
+        data-bs-target="#dialogOpcionesRetroa">
+        {{ 'paginas.rasgo-perfil.boton-opciones-retroalimentacion' |
+        translate }}
+      </button>
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+        *ngIf="reponseProfileTrait?.trait?.disclaimer != undefined" data-bs-target="#dialogDescargoResponsa">
+        {{ 'paginas.rasgo-perfil.boton-descargo-responsabilidad' |
+        translate }}
+      </button>
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+        *ngIf="reponseProfileTrait?.trait?.gauge_labels?.length != undefined && reponseProfileTrait?.trait?.gauge_labels?.length != 0"
+        data-bs-target="#dialogEtiquetaCalibre">
+        {{ 'paginas.rasgo-perfil.boton-etiqueta-calibre' |
+        translate }}
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="dialogCondiciones" tabindex="-1" aria-labelledby="dialogCondicionesLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ 'paginas.recomendacion-perfil.condiciones-satisfechas' |
+          translate }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+          *ngFor="let item of responseRecomendationTrait?.satisfied_conditions">
+          <div class="card">
+            <div class="card-body">
+              <form class="form-floating" *ngIf="item?.condition_type">
+                <input disabled type="email" class="form-control" id="floatingInputValue"
+                  [value]="item?.condition_type">
+                <label for="floatingInputValue">{{ 'paginas.recomendacion-perfil.tipo-condicion' |
+                  translate }}</label>
+              </form>
+              <p class="card-text" [innerHTML]="item.conditional_text"></p>
+              <form class="form-floating" *ngIf="item?.priority">
+                <input disabled type="email" class="form-control" id="floatingInputValue"
+                  [value]="item?.priority">
+                <label for="floatingInputValue">{{ 'paginas.recomendacion-perfil.prioridad' |
+                  translate }}</label>
+              </form>
+              <form class="form-floating" *ngIf="item?.genotype">
+                <input disabled type="email" class="form-control" id="floatingInputValue"
+                  [value]="item?.genotype">
+                <label for="floatingInputValue">{{ 'paginas.recomendacion-perfil.geno-tipo' |
+                  translate }}</label>
+              </form>
+              <form class="form-floating" *ngIf="item?.conditional_score">
+                <input disabled type="email" class="form-control" id="floatingInputValue"
+                  [value]="item?.conditional_score">
+                <label for="floatingInputValue">{{ 'paginas.recomendacion-perfil.puntaje' |
+                  translate }}</label>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ "paginas.comunes.boton-cerrar" |
+          translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="dialogDescargoResponsa" tabindex="-1" aria-labelledby="dialogDescargoResponsaLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ 'paginas.rasgo-perfil.descargo-responsabilidad' |
+          translate }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text" [innerHTML]="reponseProfileTrait?.trait?.disclaimer"></p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ "paginas.comunes.boton-cerrar" |
+          translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="dialogRasgo" tabindex="-1" aria-labelledby="dialogRasgoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ 'paginas.rasgo-perfil.detalle-rasgo' |
+          translate }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-title">{{ reponseProfileTrait?.trait?.name }}</h5>
+              <h5 class="card-subtitle mb-2 text-muted">{{ reponseProfileTrait?.trait?.text_header }}</h5>
+            </div>
+            <div class="card-body">
+              <p class="card-text" [innerHTML]="reponseProfileTrait?.trait?.text"></p>
+              <form class="form-floating" *ngIf="reponseProfileTrait?.trait?.feedback_question">
+                <input disabled type="email" class="form-control" id="floatingInputValue"
+                  [value]="reponseProfileTrait?.trait?.feedback_question">
+                <label for="floatingInputValue">{{ 'paginas.rasgo-perfil.pregunta-retroalimentacion' |
+                  translate }}</label>
+              </form>
+              <form class="form-floating" *ngIf="reponseProfileTrait?.trait?.model_type">
+                <input disabled type="email" class="form-control" id="floatingInputValue"
+                  [value]="reponseProfileTrait?.trait?.model_type">
+                <label for="floatingInputValue">{{ 'paginas.rasgo-perfil.tipo-modelo' |
+                  translate }}</label>
+              </form>
+              <form class="form-floating" *ngIf="reponseProfileTrait?.trait?.statistic_type">
+                <input disabled type="email" class="form-control" id="floatingInputValue"
+                  [value]="reponseProfileTrait?.trait?.statistic_type">
+                <label for="floatingInputValue">{{ 'paginas.rasgo-perfil.tipo-estadistica' |
+                  translate }}</label>
+              </form>
+              <select disabled id="seleGV" class="form-select" multiple
+                *ngFor="let item of reponseProfileTrait?.genetic_variants">
+                <option selected>{{ 'paginas.rasgo-perfil.variantes-geneticas' |
+                  translate }}</option>
+                <option value="{{item.rsid}}">{{ item.genotype }}</option>
+              </select>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ "paginas.comunes.boton-cerrar" |
+          translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="dialogOpcionesRetroa" tabindex="-1" aria-labelledby="OpcionesRetroaLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ "paginas.rasgo-perfil.opciones-retroalimentacion" | translate
+          }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-opciones-retroalimentacion.id" | translate }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-opciones-retroalimentacion.texto-respuesta" |
+                        translate }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-opciones-retroalimentacion.orden-visualizacion" |
+                        translate }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-opciones-retroalimentacion.puntacion-de" |
+                        translate }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-opciones-retroalimentacion.puntacion-a" | translate
+                        }}</th>
+                      <th scope="col">{{
+                        "paginas.rasgo-perfil.tabla-opciones-retroalimentacion.identificacion-escenario" | translate }}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of  (reponseProfileTrait?.trait?.feedback_choices | orderBy:'display_order')">
+                      <td>{{ item.id }}</td>
+                      <td>{{item.answer_text }}</td>
+                      <td>{{item.display_order }}</td>
+                      <td>{{item.score_from }}</td>
+                      <td>{{item.score_to }}</td>
+                      <td>{{item.scenario_id }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ "paginas.comunes.boton-cerrar" |
+          translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="dialogEtiquetaCalibre" tabindex="-1" aria-labelledby="dialogEtiquetaCalibreLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ "paginas.rasgo-perfil.etiqueta-calibre" | translate
+          }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card">
+            <div class="card-body">
+              <form class="form-floating" *ngIf="reponseProfileTrait?.trait?.gauge_type">
+                <input disabled type="email" class="form-control" id="floatingInputValue"
+                  [value]="reponseProfileTrait?.trait?.gauge_type">
+                <label for="floatingInputValue">{{ 'paginas.rasgo-perfil.tipo-calibre' |
+                  translate }}</label>
+              </form>
+              <form class="form-floating" *ngIf="reponseProfileTrait?.trait?.gauge_range_type">
+                <input disabled type="email" class="form-control" id="floatingInputValue"
+                  [value]="reponseProfileTrait?.trait?.gauge_range_type">
+                <label for="floatingInputValue">{{ 'paginas.rasgo-perfil.tipo-rango-calibre' |
+                  translate }}</label>
+              </form>
+              <form class="form-floating" *ngIf="reponseProfileTrait?.trait?.gauge_direction">
+                <input disabled type="email" class="form-control" id="floatingInputValue"
+                  [value]="reponseProfileTrait?.trait?.gauge_direction">
+                <label for="floatingInputValue">{{ 'paginas.rasgo-perfil.direccion-calibre' |
+                  translate }}</label>
+              </form>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-etiquetas-calibre.id" | translate }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-etiquetas-calibre.texto" | translate }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-etiquetas-calibre.orden-visualizacion" | translate
+                        }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-etiquetas-calibre.puntacion-de" | translate }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-etiquetas-calibre.puntacion-a" | translate }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-etiquetas-calibre.identificacion-escenario" |
+                        translate }}</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let item of  (reponseProfileTrait?.trait?.gauge_labels | orderBy:'display_order')">
+                    <tr [bgColor]="item.label_color ">
+                      <td>{{ item.id }}</td>
+                      <td>{{item.label_text }}</td>
+                      <td>{{item.display_order }}</td>
+                      <td>{{item.score_from }}</td>
+                      <td>{{item.score_to }}</td>
+                      <td>{{item.scenario_id }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ "paginas.comunes.boton-cerrar" |
+          translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>

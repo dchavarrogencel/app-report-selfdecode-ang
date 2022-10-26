@@ -1,0 +1,82 @@
+{
+  "paginas": {
+    "principal": {
+      "titulo": "Selfdecode exams",
+      "boton-recomendacion": "See profile recommendation",
+      "boton-recomendacion-trait": "See Profile recommendation trait",
+      "mensaje-no-tiene-registro":"Has no report",
+      "boton-profile-trait": "See profile trait",
+      "boton-detalle-reporte": "See report detail",
+      "detalle-reporte-modal": "Report detail",
+      "area": "area",
+      "tipo-reporte": "Report type",
+      "estado":"Status" 
+    },
+    "recomendacion": {
+      "titulo": "Profile recommendation",
+      "boton": "",
+      "mensaje-no-tiene-registro":"Has no recommendations",
+      "tipo-recomendacion":"Recommendation type",
+      "puntaje-total":"Total score",
+      "efecto":"Effect",
+      "evidencia":"Evidence"
+    },
+    "recomendacion-perfil": {
+      "titulo": "Profile recommendation trait",
+      "boton": "",
+      "mensaje-no-tiene-registro":"You have no profile recommendations",
+      "condiciones-satisfechas": "Conditions satisfied",
+      "boton-ver-condiciones": "See Conditions satisfied",
+      "puntaje-total":"Total score",
+      "efecto":"Effect",
+      "evidencia":"Evidence",
+      "puntacion-inicial":"Initial score",
+      "puntaje":"Score",
+      "prioridad":"Priority",
+      "tipo-condicion":"Type condition",
+      "geno-tipo": "Genotype"
+    },
+    "rasgo-perfil": {
+      "titulo": "Profile trait",
+      "boton": "",
+      "mensaje-no-tiene-registro":"It has no profile feature",
+      "opciones-retroalimentacion": "Feedback choices",
+      "boton-opciones-retroalimentacion": "See feedback choices",
+      "boton-rasgo": "See detail trait",
+      "detalle-rasgo": "Detail trait",
+      "boton-descargo-responsabilidad": "See disclaimer",
+      "descargo-responsabilidad": "Disclaimer",
+      "boton-etiqueta-calibre": "See gauge labels",
+      "etiqueta-calibre": "Gauge labels",
+      "variantes-geneticas": "Genetic variants",
+      "pregunta-retroalimentacion":"Feedback question",
+      "tipo-modelo":"Type model",
+      "tipo-estadistica":"Type statistic",
+      "tipo-calibre": "Type gauge",
+      "tipo-rango-calibre": "Type range gauge",
+      "direccion-calibre": "Direction gauge",
+      "tabla-opciones-retroalimentacion":{
+        "id": "Id",
+        "texto-respuesta": "Answer text",
+        "orden-visualizacion": "Display order",
+        "puntacion-de": "Score from",
+        "puntacion-a": "Score to",
+        "identificación-escenario": "Scenario id"
+      },
+      "tabla-etiquetas-calibre":{
+        "id": "Id",
+        "texto": "Label text",
+        "color": "Color",
+        "orden-visualizacion": "Display order",
+        "puntacion-de": "Score from",
+        "puntacion-a": "Score to",
+        "identificacion-escenario": "Scenario id"
+      }
+    },
+    "comunes":{
+      "volver-inicio": "Back home",
+      "boton-cerrar": "Close",
+      "pie-pagina": "Gencell Pharma Ⓒ 2022. All rights reserved."
+    }
+  }
+}
