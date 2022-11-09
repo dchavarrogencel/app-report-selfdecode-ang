@@ -32,6 +32,6 @@ export class ServiceUtils {
   }
 
   public getImage(endpoint: string): Observable<any> {
-    return this.http.get("http://localhost:4200/"+ endpoint);
+    return this.http.get(environment.url_app+ endpoint);
   }
 }
