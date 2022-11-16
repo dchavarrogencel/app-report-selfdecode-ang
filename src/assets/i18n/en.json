@@ -3,7 +3,7 @@
     "principal": {
       "titulo": "Selfdecode exams",
       "boton-recomendacion": "Recommendation",
-      "boton-recomendacion-trait": "Recommendation trait",
+      "boton-recomendacion-trait": "Trait",
       "mensaje-no-tiene-registro":"Has no report",
       "boton-profile-trait": "Profile",
       "boton-detalle-reporte": "Detail",
