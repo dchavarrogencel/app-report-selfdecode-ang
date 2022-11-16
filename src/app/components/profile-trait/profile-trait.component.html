@@ -4,7 +4,13 @@
         'paginas.comunes.volver-inicio' | translate }}"></app-header>
     </div>
     <div class="card-body">
-      <div class="alert alert-warning" role="alert" *ngIf="lstProfileTrait.length==0">
+      <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status"  *ngIf="indLoading">
+        <span class="sr-only"></span>
+      </div>
+      <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status"  *ngIf="indLoading">
+        <span class="sr-only"></span>
+      </div>
+      <div class="alert alert-warning" role="alert" *ngIf="lstProfileTrait.length==0 && !indLoading">
         {{ "paginas.rasgo-perfil.mensaje-no-tiene-registro" | translate }}
       </div>
       <div class="row">
@@ -13,11 +19,17 @@
           *ngFor="let item of lstProfileTrait"
         >
           <app-cards
-            titulo="{{ item.trait_score_text }}"
+            titulo="{{ item.trait?.text_header }}"
             subtitle=""
-            descripcion="{{ item.personalized_text}}"
+            descripcion="{{ item.trait_score_text }}"
             [reponseProfileTrait]="item"
+            (eventEmitir)="onClickProfileTrait($event)"
           ></app-cards>
+          <app-dialog-detalle-profile-trait [reponseProfileTrait]="profile"></app-dialog-detalle-profile-trait>
+          <app-dialog-descargo-responsabilidad [reponseProfileTrait]="profile"></app-dialog-descargo-responsabilidad>
+          <app-dialog-etiqueta-calibre [reponseProfileTrait]="profile"></app-dialog-etiqueta-calibre>
+          <app-dialog-opciones-retroalimentacion [reponseProfileTrait]="profile"></app-dialog-opciones-retroalimentacion>
+          <app-dialog-rasgo [reponseProfileTrait]="profile"></app-dialog-rasgo>
         </div>
       </div>
     </div>

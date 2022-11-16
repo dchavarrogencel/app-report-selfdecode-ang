@@ -1,0 +1,27 @@
+<div class="modal fade" id="dialogDetalleProfile" tabindex="-1" aria-labelledby="dialogDetalleProfileLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="recomenModalLabel">{{ 'paginas.rasgo-perfil.detalle-rasgo-perfil-modal' |
+          translate }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card">
+            <div class="card-body">
+              hola
+              <p class="card-text" [innerHTML]="reponseProfileTrait?.personalized_text"></p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ "paginas.comunes.boton-cerrar" |
+          translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>

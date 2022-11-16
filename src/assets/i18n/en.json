@@ -2,11 +2,11 @@
   "paginas": {
     "principal": {
       "titulo": "Selfdecode exams",
-      "boton-recomendacion": "See profile recommendation",
-      "boton-recomendacion-trait": "See Profile recommendation trait",
+      "boton-recomendacion": "Recommendation",
+      "boton-recomendacion-trait": "Recommendation trait",
       "mensaje-no-tiene-registro":"Has no report",
-      "boton-profile-trait": "See profile trait",
-      "boton-detalle-reporte": "See report detail",
+      "boton-profile-trait": "Profile",
+      "boton-detalle-reporte": "Detail",
       "detalle-reporte-modal": "Report detail",
       "area": "area",
       "tipo-reporte": "Report type",
@@ -19,7 +19,9 @@
       "tipo-recomendacion":"Recommendation type",
       "puntaje-total":"Total score",
       "efecto":"Effect",
-      "evidencia":"Evidence"
+      "evidencia":"Evidence",
+      "boton-detalle-recomendacion": "See detail recommendation",
+      "detalle-recomendacion-modal": "Detail recommendation"
     },
     "recomendacion-perfil": {
       "titulo": "Profile recommendation trait",
@@ -34,7 +36,8 @@
       "puntaje":"Score",
       "prioridad":"Priority",
       "tipo-condicion":"Type condition",
-      "geno-tipo": "Genotype"
+      "geno-tipo": "Genotype",
+      "detalle-recomendacion-modal": "Detail recommendation trait"
     },
     "rasgo-perfil": {
       "titulo": "Profile trait",
@@ -71,10 +74,12 @@
         "puntacion-de": "Score from",
         "puntacion-a": "Score to",
         "identificacion-escenario": "Scenario id"
-      }
+      },
+      "detalle-rasgo-perfil-modal": "Detail profile trait"
     },
     "comunes":{
       "volver-inicio": "Back home",
+      "boton-detalle": "Detail",
       "boton-cerrar": "Close",
       "pie-pagina": "Gencell Pharma Ⓒ 2022. All rights reserved."
     }

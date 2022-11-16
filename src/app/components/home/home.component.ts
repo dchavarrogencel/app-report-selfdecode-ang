@@ -9,15 +9,18 @@ import { UtilsService } from '../../services/utils.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   RUTA_BASE_IMAGEN = 'assets/images/';
   EXTENSION_JPG = '.jpg';
+  VER_ACCIONES='Ver acciones';
   report: Report;
   card: Card;
   lstReports: Array<Report>;
-  respuestaImage = '';
+  indRespuesta = false;
+  indSeleccionado='';
+  indLoading= false;
 
   constructor(private serviceReport: ReportService, private activatedRoute: ActivatedRoute, private router: Router, private serviceUtils: UtilsService) {
     console.log('constructor home');
@@ -26,35 +29,43 @@ export class HomeComponent implements OnInit {
     this.card = new Card();
     this.report = new Report();
     this.lstReports = new Array<Report>();
-
+    
+    this.getReportsStatus(this.activatedRoute.snapshot.params["profileId"], localStorage.getItem("idioma") != null ? String(localStorage.getItem("idioma")) : environment.idioma_default);
+ 
   }
   ngOnInit() {
 
-    this.getReportsStatus(this.activatedRoute.snapshot.params["profileId"], localStorage.getItem("idioma") != null ? String(localStorage.getItem("idioma")) : environment.idioma_default);
+   
   }
 
   getReportById(idReport: string, idProfileReport: string, idioma: string, status: Boolean) {
     this.serviceReport.getReportById(idReport, idioma).subscribe(response => {
       response.idProfileReport = idProfileReport;
       response.status = status;
-
-      this.getExisteImage(this.RUTA_BASE_IMAGEN + idReport + this.EXTENSION_JPG);
-      if (this.respuestaImage != undefined && this.respuestaImage != "") {
-        response.image = this.respuestaImage;
+      if (localStorage.getItem(idReport) != undefined && localStorage.getItem(idReport) != "") {
+        response.image = localStorage.getItem(idReport);
       } else {
-        response.image = '';
+        response.image =  '';
       }
+      response.id= idReport;
       this.lstReports.push(response);
+      localStorage.removeItem(idReport);
     })
   }
 
   getReportsStatus(idProfile: string, idioma: string) {
+    this.indLoading=true;
     this.serviceReport.getReportsStatus(idProfile, idioma).subscribe(response => {
+     
       for (let i = 0; i < response.length; i++) {
         console.log("response status " + response[i].status);
+        this.getExisteImage(this.RUTA_BASE_IMAGEN + response[i].report_id + this.EXTENSION_JPG, response[i].report_id);
         this.getReportById(response[i].report_id, response[i].id, idioma, response[i].status);
+        this.indLoading=false;
       }
+      
     })
+    
   }
 
   onClickActualizarIdioma(e: any) {
@@ -77,21 +88,33 @@ export class HomeComponent implements OnInit {
     console.log("Item modal ", item);
     this.report = item;
   }
-  getExisteImage(image: string) {
+  getExisteImage(image: string , reportId: string) {
     this.serviceUtils.getExistsImage(image).subscribe(
       resp => {
-        this.respuestaImage = image;
+        localStorage.setItem(reportId,image);
       },
       error => {
         if (error.status === 200) {
-          this.respuestaImage = image;
+          localStorage.setItem(reportId,image);
         } else {
-          this.respuestaImage = '';
+          localStorage.setItem(reportId,"");
         }
       }
     );
     return '';
   }
 
-
+  onClickHabilitarAcciones(item: Report){
+    console.log('Ingreso al evento' );
+    this.inicializarSeleccionado(item);
+  }
+  inicializarSeleccionado(item: Report){
+    for(let i=0;i<this.lstReports.length;i++){
+      if(this.lstReports[i].id != item.id){
+        this.lstReports[i].seleccionado ='';
+      }else{
+        this.lstReports[i].seleccionado ='checked';
+      }
+    }
+  }
 }

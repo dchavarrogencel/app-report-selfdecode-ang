@@ -13,9 +13,14 @@ export class RecomendationComponent implements OnInit {
   lstRecomendations: Array<ResponseRecomendation>;
   idProfileReport: string;
   idioma=''
+  recomendation: ResponseRecomendation;
+  indRecomendation =false;
+  indLoading= false;
+
   constructor(private serviceRecomendation: RecomendationService, private activatedRoute: ActivatedRoute) {
     this.idProfileReport ='';
     this.lstRecomendations = new Array<ResponseRecomendation>();
+    this.recomendation= new ResponseRecomendation();
     console.log('params ' , this.activatedRoute.snapshot);
    }
 
@@ -26,9 +31,11 @@ export class RecomendationComponent implements OnInit {
   }
 
   getRecomendation(){
+    this.indLoading= true;
     this.serviceRecomendation.getRecomendation(this.idProfileReport, this.idioma).subscribe(response =>{
       console.log('response ', response);
       this.lstRecomendations  = response;
+      this.indLoading= false;
       console.log('  this.lstRecomendations ',   this.lstRecomendations);
     })
   }
@@ -39,6 +46,13 @@ export class RecomendationComponent implements OnInit {
     this.lstRecomendations = new Array<ResponseRecomendation>();
     this.getRecomendation();
 
+  }
+
+  onClickDetailRecomendation(e: any){
+    console.log('e ' , e);
+    this.recomendation = e;
+    console.log('this.recomendation ' , this.recomendation);
+    
   }
 
   onClickVolver(){

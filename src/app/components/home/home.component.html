@@ -1,47 +1,43 @@
-
 <div class="card text-center ">
   <div class="card-header">
     <app-header titulo="{{'paginas.principal.titulo' | translate }}" (eventIdioma)="onClickActualizarIdioma($event)">
     </app-header>
   </div>
   <div class="card-body">
-    <div class="alert alert-warning" role="alert" *ngIf="lstReports.length==0">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status"  *ngIf="indLoading">
+      <span class="sr-only"></span>
+    </div>
+    <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status"  *ngIf="indLoading">
+      <span class="sr-only"></span>
+    </div>
+    <div class="alert alert-warning" role="alert" *ngIf="lstReports.length==0 && !indLoading">
       {{ "paginas.principal.mensaje-no-tiene-registro" | translate }}
     </div>
-    <div class="row">
-      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" *ngFor="let item of lstReports">
-        <div class="card" style="border-color: {{item.color}}">
-          <div class="card-header">
-            <h5 class="card-title">{{ item.text_header}}</h5>
-            <h5 class="card-subtitle mb-2 text-muted">{{ item.name }}</h5>
+    <div class="row" *ngIf="lstReports.length>0">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" *ngFor="let item of lstReports">
+        <div class="card rounded-circle" style="border-color: {{item.color}}">
+
+          <div class="menu">
+            <input checked="{{ item.seleccionado }}" class="menu-toggler" type="checkbox">
+            <img class="card-img-top" [src]="item.image | noimage" alt="{{VER_ACCIONES}}"
+              (mousemove)="onClickHabilitarAcciones(item)">
+            <ul>
+              <li class="menu-item"><a data-bs-toggle="modal" data-bs-target="#exampleModal"
+                  (click)="onClickDetailModal(item)">   {{ 'paginas.principal.boton-detalle-reporte' | translate }}</a></li>
+
+              <li class="menu-item"><a (click)="onClickRecomendacion(item.idProfileReport)">{{
+                'paginas.principal.boton-recomendacion' | translate }}</a></li>
+              <li class="menu-item"><a (click)="onClickRecomendacionPerfil(item.idProfileReport)">{{
+                'paginas.principal.boton-recomendacion-trait' | translate }}</a></li>
+              <li class="menu-item"><a (click)="onClickRasgoPerfil(item.idProfileReport)">{{
+                'paginas.principal.boton-profile-trait' | translate }}</a></li>
+            </ul>
           </div>
-          <div class="card-body">
-            <img class="card-img-top" [src]="item.image | noimage"/>
-          </div>
-          <div class="card-footer">
-            <div class="row">
-              <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-                data-bs-target="#exampleModal" (click)="onClickDetailModal(item)">
-                {{ 'paginas.principal.boton-detalle-reporte' | translate }}
-              </button>
-
-              <button type="button" class="btn btn-outline-primary" [disabled]="item.status != 'completed'"
-                (click)="onClickRecomendacion(item.idProfileReport)">{{
-                'paginas.principal.boton-recomendacion' | translate }}</button>
-
-              <button type="button" class="btn btn-outline-primary" [disabled]="item.status != 'completed'"
-                (click)="onClickRecomendacionPerfil(item.idProfileReport)" style="margin: 3;">{{
-                'paginas.principal.boton-recomendacion-trait' | translate }}</button>
-
-              <button type="button" class="btn btn-outline-primary" [disabled]="item.status != 'completed'" (click)="onClickRasgoPerfil(item.idProfileReport)"
-                style="margin: 4;">{{
-                'paginas.principal.boton-profile-trait' | translate }}</button>
-
-              <app-dialog [report]="report" title="{{'paginas.principal.detalle-reporte-modal' | translate }}">
-              </app-dialog>
-            </div>
-          </div>
+          <app-dialog [report]="report" title="{{'paginas.principal.detalle-reporte-modal' | translate }}">
+          </app-dialog>
         </div>
+        <br>
+
       </div>
     </div>
   </div>

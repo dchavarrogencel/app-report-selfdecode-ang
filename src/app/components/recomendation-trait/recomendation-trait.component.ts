@@ -14,10 +14,13 @@ export class RecomendationTraitComponent implements OnInit {
   idioma ="";
   lstRecomendationsTrait: Array<ResponseRecomendationTrait>;
   idProfileReport: string;
+  indLoading= false;
+  recomendation: ResponseRecomendationTrait;
   
   constructor(private serviceRecomendation: RecomendationTraitService, private activatedRoute: ActivatedRoute) {
     this.idProfileReport ='';
     this.lstRecomendationsTrait = new Array<ResponseRecomendationTrait>();
+    this.recomendation = new ResponseRecomendationTrait();
     console.log('params ' , this.activatedRoute.snapshot);
    }
 
@@ -28,9 +31,11 @@ export class RecomendationTraitComponent implements OnInit {
   }
 
   getRecomendation(){
+    this.indLoading= true;
     this.serviceRecomendation.getRecomendationTrait(this.idProfileReport, this.idioma).subscribe(response =>{
       console.log('response ', response);
       this.lstRecomendationsTrait  = response;
+      this.indLoading= false;
       console.log('  this.lstRecomendations ',   this.lstRecomendationsTrait);
     })
   }
@@ -41,6 +46,13 @@ export class RecomendationTraitComponent implements OnInit {
     this.lstRecomendationsTrait = new Array<ResponseRecomendationTrait>();
     this.getRecomendation();
 
+  }
+
+  onClickRecomendationTrait(e: any){
+    console.log('e ' , e);
+    this.recomendation = e;
+    console.log('this.recomendation ' , this.recomendation);
+    
   }
 
 }

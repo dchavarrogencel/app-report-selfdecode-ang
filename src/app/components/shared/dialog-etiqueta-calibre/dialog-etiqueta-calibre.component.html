@@ -1,0 +1,69 @@
+<div class="modal fade" id="dialogEtiquetaCalibre" tabindex="-1" aria-labelledby="dialogEtiquetaCalibreLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ "paginas.rasgo-perfil.etiqueta-calibre" | translate
+          }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card">
+            <div class="card-body">
+              <form class="form-floating" *ngIf="reponseProfileTrait?.trait?.gauge_type">
+                <input disabled type="email" class="form-control" id="floatingInputValue"
+                  [value]="reponseProfileTrait?.trait?.gauge_type">
+                <label for="floatingInputValue">{{ 'paginas.rasgo-perfil.tipo-calibre' |
+                  translate }}</label>
+              </form>
+              <form class="form-floating" *ngIf="reponseProfileTrait?.trait?.gauge_range_type">
+                <input disabled type="email" class="form-control" id="floatingInputValue"
+                  [value]="reponseProfileTrait?.trait?.gauge_range_type">
+                <label for="floatingInputValue">{{ 'paginas.rasgo-perfil.tipo-rango-calibre' |
+                  translate }}</label>
+              </form>
+              <form class="form-floating" *ngIf="reponseProfileTrait?.trait?.gauge_direction">
+                <input disabled type="email" class="form-control" id="floatingInputValue"
+                  [value]="reponseProfileTrait?.trait?.gauge_direction">
+                <label for="floatingInputValue">{{ 'paginas.rasgo-perfil.direccion-calibre' |
+                  translate }}</label>
+              </form>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-etiquetas-calibre.id" | translate }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-etiquetas-calibre.texto" | translate }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-etiquetas-calibre.orden-visualizacion" | translate
+                        }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-etiquetas-calibre.puntacion-de" | translate }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-etiquetas-calibre.puntacion-a" | translate }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-etiquetas-calibre.identificacion-escenario" |
+                        translate }}</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let item of  (reponseProfileTrait?.trait?.gauge_labels | orderBy:'display_order')">
+                    <tr [bgColor]="item.label_color ">
+                      <td>{{ item.id }}</td>
+                      <td>{{item.label_text }}</td>
+                      <td>{{item.display_order }}</td>
+                      <td>{{item.score_from }}</td>
+                      <td>{{item.score_to }}</td>
+                      <td>{{item.scenario_id }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ "paginas.comunes.boton-cerrar" |
+          translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>

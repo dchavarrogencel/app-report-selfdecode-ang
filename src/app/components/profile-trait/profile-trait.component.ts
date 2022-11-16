@@ -15,10 +15,13 @@ export class ProfileTraitComponent implements OnInit {
   lstProfileTrait: Array<ReponseProfileTrait>;
   idioma ="";
   idProfileReport: string;
+  indLoading= false;
+  profile: ReponseProfileTrait;
 
   constructor(private serviceProfileTrait: ProfileTraitService, private activatedRoute: ActivatedRoute) { 
     this.idProfileReport ='';
     this.lstProfileTrait = new Array<ReponseProfileTrait>();
+    this.profile= new ReponseProfileTrait();
   }
 
   ngOnInit(): void {
@@ -28,9 +31,11 @@ export class ProfileTraitComponent implements OnInit {
   }
 
   getRecomendation(){
+    this.indLoading= true;
     this.serviceProfileTrait.getProfileTrait(this.idProfileReport, this.idioma).subscribe(response =>{
       console.log('response ', response);
       this.lstProfileTrait  = response;
+      this.indLoading= false;
       console.log('  this.lstProfileTrait ',   this.lstProfileTrait);
     })
   }
@@ -41,6 +46,12 @@ export class ProfileTraitComponent implements OnInit {
     this.lstProfileTrait = new Array<ReponseProfileTrait>();
     this.getRecomendation();
 
+  }
+
+  onClickProfileTrait(e: any){
+    console.log('e ' , e);
+    this.profile = e;
+    
   }
 
 }

@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ResponseRecomendationTrait } from '../../../models/response.recomendation.trait';
 import { ReponseProfileTrait } from '../../../models/response.profile-trait';
 import { ResponseRecomendation } from '../../../models/response.recomendation';
+
 
 @Component({
   selector: 'app-cards',
@@ -22,9 +23,12 @@ export class CardsComponent implements OnInit {
   @Input() responseRecomendationTrait?: ResponseRecomendationTrait =  new ResponseRecomendationTrait();
   @Input() reponseProfileTrait?: ReponseProfileTrait = new ReponseProfileTrait();
 
+  @Output() eventEmitir: EventEmitter<ResponseRecomendation>= new EventEmitter<ResponseRecomendation>();
+
+  recomendation: ResponseRecomendation;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
-    
+    this.recomendation= new ResponseRecomendation();
    }
 
   ngOnInit(): void {
@@ -41,6 +45,11 @@ export class CardsComponent implements OnInit {
   }
   onClickRasgoPerfil(){
     this.router.navigate(['profile-trait' , this.id])
+  }
+  onClickEvento(item: any){
+    console.log('item ' , item);
+    this.eventEmitir.emit(item);
+    console.log('this.recomendation ' , this.recomendation);
   }
 
 }

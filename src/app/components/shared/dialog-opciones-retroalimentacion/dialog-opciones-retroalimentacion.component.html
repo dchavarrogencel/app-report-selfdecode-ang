@@ -1,0 +1,55 @@
+<div class="modal fade" id="dialogOpcionesRetroa" tabindex="-1" aria-labelledby="OpcionesRetroaLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ "paginas.rasgo-perfil.opciones-retroalimentacion" | translate
+          }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-opciones-retroalimentacion.id" | translate }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-opciones-retroalimentacion.texto-respuesta" |
+                        translate }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-opciones-retroalimentacion.orden-visualizacion" |
+                        translate }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-opciones-retroalimentacion.puntacion-de" |
+                        translate }}</th>
+                      <th scope="col">{{ "paginas.rasgo-perfil.tabla-opciones-retroalimentacion.puntacion-a" | translate
+                        }}</th>
+                      <th scope="col">{{
+                        "paginas.rasgo-perfil.tabla-opciones-retroalimentacion.identificacion-escenario" | translate }}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of  (reponseProfileTrait?.trait?.feedback_choices | orderBy:'display_order')">
+                      <td>{{ item.id }}</td>
+                      <td>{{item.answer_text }}</td>
+                      <td>{{item.display_order }}</td>
+                      <td>{{item.score_from }}</td>
+                      <td>{{item.score_to }}</td>
+                      <td>{{item.scenario_id }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ "paginas.comunes.boton-cerrar" |
+          translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>

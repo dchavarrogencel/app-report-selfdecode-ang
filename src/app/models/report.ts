@@ -1,5 +1,5 @@
 export class Report {
-    public id?: string
+    public id: string='';
     public name?: string
     public slug?: string
     public report_type?: string
@@ -27,4 +27,5 @@ export class Report {
     public translation_verified?: boolean
     public idProfileReport?: string;
     public status?: string;
+    public seleccionado='';
 }

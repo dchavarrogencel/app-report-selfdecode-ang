@@ -10,3 +10,6 @@ body{
 .modal-title{
     color: rgb(69, 104, 249);
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

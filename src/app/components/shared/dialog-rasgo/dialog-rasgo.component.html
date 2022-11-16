@@ -1,0 +1,53 @@
+<div class="modal fade" id="dialogRasgo" tabindex="-1" aria-labelledby="dialogRasgoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ 'paginas.rasgo-perfil.detalle-rasgo' |
+            translate }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title">{{ reponseProfileTrait?.trait?.name }}</h5>
+                <h5 class="card-subtitle mb-2 text-muted">{{ reponseProfileTrait?.trait?.text_header }}</h5>
+              </div>
+              <div class="card-body">
+                <p class="card-text" [innerHTML]="reponseProfileTrait?.trait?.text"></p>
+                <form class="form-floating" *ngIf="reponseProfileTrait?.trait?.feedback_question">
+                  <input disabled type="email" class="form-control" id="floatingInputValue"
+                    [value]="reponseProfileTrait?.trait?.feedback_question">
+                  <label for="floatingInputValue">{{ 'paginas.rasgo-perfil.pregunta-retroalimentacion' |
+                    translate }}</label>
+                </form>
+                <form class="form-floating" *ngIf="reponseProfileTrait?.trait?.model_type">
+                  <input disabled type="email" class="form-control" id="floatingInputValue"
+                    [value]="reponseProfileTrait?.trait?.model_type">
+                  <label for="floatingInputValue">{{ 'paginas.rasgo-perfil.tipo-modelo' |
+                    translate }}</label>
+                </form>
+                <form class="form-floating" *ngIf="reponseProfileTrait?.trait?.statistic_type">
+                  <input disabled type="email" class="form-control" id="floatingInputValue"
+                    [value]="reponseProfileTrait?.trait?.statistic_type">
+                  <label for="floatingInputValue">{{ 'paginas.rasgo-perfil.tipo-estadistica' |
+                    translate }}</label>
+                </form>
+                <select disabled id="seleGV" class="form-select" multiple
+                  *ngFor="let item of reponseProfileTrait?.genetic_variants">
+                  <option selected>{{ 'paginas.rasgo-perfil.variantes-geneticas' |
+                    translate }}</option>
+                  <option value="{{item.rsid}}">{{ item.genotype }}</option>
+                </select>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ "paginas.comunes.boton-cerrar" |
+            translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>

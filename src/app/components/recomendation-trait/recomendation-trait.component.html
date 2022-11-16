@@ -4,7 +4,13 @@
         'paginas.comunes.volver-inicio' | translate }}"></app-header>
     </div>
     <div class="card-body">
-      <div class="alert alert-warning" role="alert" *ngIf="lstRecomendationsTrait.length==0">
+      <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status"  *ngIf="indLoading">
+        <span class="sr-only"></span>
+      </div>
+      <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status"  *ngIf="indLoading">
+        <span class="sr-only"></span>
+      </div>
+      <div class="alert alert-warning" role="alert" *ngIf="lstRecomendationsTrait.length==0 && !indLoading">
         {{ "paginas.recomendacion-perfil.mensaje-no-tiene-registro" | translate }}
       </div>
       <div class="row">
@@ -15,9 +21,12 @@
           <app-cards
             titulo="{{ item.recommendation_trait?.effect_heading }}"
             subtitle=""
-            descripcion="{{ item.recommendation_trait?.general_description }}"
+            descripcion=""
             [responseRecomendationTrait]="item"
+            (eventEmitir)="onClickRecomendationTrait($event)"
           ></app-cards>
+          <app-dialog-detalle-recomendacion-trait [responseRecomendationTrait]="recomendation"></app-dialog-detalle-recomendacion-trait>
+          <app-dialog-condiciones [responseRecomendationTrait]="recomendation"></app-dialog-condiciones>
         </div>
       </div>
     </div>

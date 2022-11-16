@@ -1,0 +1,18 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { ReponseProfileTrait } from '../../../models/response.profile-trait';
+
+@Component({
+  selector: 'app-dialog-etiqueta-calibre',
+  templateUrl: './dialog-etiqueta-calibre.component.html',
+  styleUrls: ['./dialog-etiqueta-calibre.component.css']
+})
+export class DialogEtiquetaCalibreComponent implements OnInit {
+
+  @Input() reponseProfileTrait?: ReponseProfileTrait = new ReponseProfileTrait();
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}

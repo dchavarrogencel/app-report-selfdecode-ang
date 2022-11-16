@@ -2,11 +2,11 @@
   "paginas": {
     "principal": {
       "titulo": "Examenes de auto decodificar",
-      "boton-recomendacion": "Ver recomendación",
-      "boton-recomendacion-trait": "Ver recomendación de perfil",
-      "boton-profile-trait": "Ver rasgo de perfil",
+      "boton-recomendacion": "Recomendación",
+      "boton-recomendacion-trait": "Perfil",
+      "boton-profile-trait": "Rasgo",
       "mensaje-no-tiene-registro":"No tiene reportes",
-      "boton-detalle-reporte": "Ver detalle reporte",
+      "boton-detalle-reporte": "Detalle",
       "detalle-reporte-modal": "Detalle reporte",
       "area": "area",
       "tipo-reporte": "Tipo de reporte",
@@ -19,7 +19,9 @@
       "tipo-recomendacion":"Tipo de recomendación",
       "puntaje-total":"Puntaje total",
       "efecto":"Efecto",
-      "evidencia":"Evidencia"
+      "evidencia":"Evidencia",
+      "boton-detalle-recomendacion": "Ver detalle recomendación",
+      "detalle-recomendacion-modal": "Detalle recomendación"
     },
     "recomendacion-perfil": {
       "titulo": "Rasgo de recomendación de perfil",
@@ -34,7 +36,8 @@
       "puntaje":"Puntaje",
       "prioridad":"Prioridad",
       "tipo-condicion":"Tipo de condición",
-      "geno-tipo": "Genotipo"
+      "geno-tipo": "Genotipo",
+      "detalle-recomendacion-modal": "Detalle recomendación perfil"
     },
     "rasgo-perfil": {
       "titulo": "Rasgo de perfil",
@@ -71,10 +74,12 @@
         "puntacion-de": "Puntuación de",
         "puntacion-a": "Puntación a",
         "identificacion-escenario": "Identificación del escenario"
-      }
+      },
+      "detalle-rasgo-perfil-modal": "Detalle rasgo perfil"
     },
     "comunes":{
       "boton-cerrar": "Cerrar",
+      "boton-detalle": "Detalle",
       "volver-inicio": "Volver inicio",
       "pie-pagina": "Gencell Pharma Ⓒ 2022. Todos los derechos reservados."
     }

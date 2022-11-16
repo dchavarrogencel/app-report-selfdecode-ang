@@ -1,0 +1,50 @@
+<div class="modal fade" id="dialogCondiciones" tabindex="-1" aria-labelledby="dialogCondicionesLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ 'paginas.recomendacion-perfil.condiciones-satisfechas' |
+          translate }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+          *ngFor="let item of responseRecomendationTrait?.satisfied_conditions">
+          <div class="card">
+            <div class="card-body">
+              <form class="form-floating" *ngIf="item?.condition_type">
+                <input disabled type="email" class="form-control" id="floatingInputValue"
+                  [value]="item?.condition_type">
+                <label for="floatingInputValue">{{ 'paginas.recomendacion-perfil.tipo-condicion' |
+                  translate }}</label>
+              </form>
+              <p class="card-text" [innerHTML]="item.conditional_text"></p>
+              <form class="form-floating" *ngIf="item?.priority">
+                <input disabled type="email" class="form-control" id="floatingInputValue"
+                  [value]="item?.priority">
+                <label for="floatingInputValue">{{ 'paginas.recomendacion-perfil.prioridad' |
+                  translate }}</label>
+              </form>
+              <form class="form-floating" *ngIf="item?.genotype">
+                <input disabled type="email" class="form-control" id="floatingInputValue"
+                  [value]="item?.genotype">
+                <label for="floatingInputValue">{{ 'paginas.recomendacion-perfil.geno-tipo' |
+                  translate }}</label>
+              </form>
+              <form class="form-floating" *ngIf="item?.conditional_score">
+                <input disabled type="email" class="form-control" id="floatingInputValue"
+                  [value]="item?.conditional_score">
+                <label for="floatingInputValue">{{ 'paginas.recomendacion-perfil.puntaje' |
+                  translate }}</label>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ "paginas.comunes.boton-cerrar" |
+          translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>

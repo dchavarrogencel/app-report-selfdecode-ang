@@ -23,6 +23,18 @@ import { DialogComponent } from './components/shared/dialog/dialog.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { NoImagePipe } from './pipes/noimage.pipe';
 
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogDetailRecomendationComponent } from './components/shared/dialog-detail-recomendation/dialog-detail-recomendation.component';
+import { DialogCondicionesComponent } from './components/shared/dialog-condiciones/dialog-condiciones.component';
+import { DialogDescargoResponsabilidadComponent } from './components/shared/dialog-descargo-responsabilidad/dialog-descargo-responsabilidad.component';
+import { DialogRasgoComponent } from './components/shared/dialog-rasgo/dialog-rasgo.component';
+import { DialogOpcionesRetroalimentacionComponent } from './components/shared/dialog-opciones-retroalimentacion/dialog-opciones-retroalimentacion.component';
+import { DialogEtiquetaCalibreComponent } from './components/shared/dialog-etiqueta-calibre/dialog-etiqueta-calibre.component';
+import { DialogDetalleRecomendacionTraitComponent } from './components/shared/dialog-detalle-recomendacion-trait/dialog-detalle-recomendacion-trait.component';
+import { DialogDetalleProfileTraitComponent } from './components/shared/dialog-detalle-profile-trait/dialog-detalle-profile-trait.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +47,15 @@ import { NoImagePipe } from './pipes/noimage.pipe';
     HeaderComponent,
     FooterComponent,
     DialogComponent,
-    NoImagePipe
+    NoImagePipe,
+    DialogDetailRecomendationComponent,
+    DialogCondicionesComponent,
+    DialogDescargoResponsabilidadComponent,
+    DialogRasgoComponent,
+    DialogOpcionesRetroalimentacionComponent,
+    DialogEtiquetaCalibreComponent,
+    DialogDetalleRecomendacionTraitComponent,
+    DialogDetalleProfileTraitComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +72,10 @@ import { NoImagePipe } from './pipes/noimage.pipe';
         },
         deps: [ HttpClient ]
       }
-    })
+    }),
+    MatButtonModule,
+    MatIconModule,
+    BrowserAnimationsModule
     
   ],
   providers: [CookieService],

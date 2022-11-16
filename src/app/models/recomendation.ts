@@ -10,7 +10,7 @@ export class Recomendation {
     public is_prevention?: boolean
     public name?: string=''
 
-    public generic_text?: string
+    public generic_text?: string=''
     public sentence?: string
     public slug?: string
     public default_frequency_value?: string
