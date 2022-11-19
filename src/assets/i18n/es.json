@@ -78,6 +78,8 @@
       "detalle-rasgo-perfil-modal": "Detalle rasgo perfil"
     },
     "comunes":{
+      "ver-documento": "Ver documento",
+      "visor-documento-modal": "Documento",
       "boton-cerrar": "Cerrar",
       "boton-detalle": "Detalle",
       "volver-inicio": "Volver inicio",

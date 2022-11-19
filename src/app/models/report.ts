@@ -28,4 +28,5 @@ export class Report {
     public idProfileReport?: string;
     public status?: string;
     public seleccionado='';
+    public request_id='';
 }

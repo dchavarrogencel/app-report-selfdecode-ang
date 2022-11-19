@@ -78,6 +78,8 @@
       "detalle-rasgo-perfil-modal": "Detail profile trait"
     },
     "comunes":{
+      "ver-documento": "View document",
+      "visor-documento-modal": "Document",
       "volver-inicio": "Back home",
       "boton-detalle": "Detail",
       "boton-cerrar": "Close",

@@ -1,0 +1,58 @@
+<div id="carousel">
+    <ul class="flip-items">
+        <li data-flip-title="item.color" *ngFor="let item of lstReportParam">
+            <img class="card-img-top" (mousemove)="onClickHabilitarAcciones(item)" [src]="item.image | noimage"
+            width="300px" height="300px">
+           <div class="row">
+            <label for="floatingInputInvalid"><b> {{item.name}} </b></label>
+            <button  data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onClickDetailModal(item)" type="button" class="btn btn-outline-primary"> {{ 'paginas.principal.boton-detalle-reporte' | translate }}</button>
+            <br>
+            <button (click)="onClickRecomendacion(item.idProfileReport)" type="button" class="btn btn-outline-primary">{{
+                'paginas.principal.boton-recomendacion' | translate }}</button>
+                <br>
+            <button (click)="onClickRecomendacionPerfil(item.idProfileReport)" type="button" class="btn btn-outline-primary">{{
+                'paginas.principal.boton-recomendacion-trait' | translate }}</button>
+                <br>
+            <button (click)="onClickRasgoPerfil(item.idProfileReport)" type="button" class="btn btn-outline-primary">{{
+                'paginas.principal.boton-profile-trait' | translate }}</button>
+                <button (click)="onClickVerDocumento(item)"  data-bs-toggle="modal" data-bs-target="#dialogVisorDocument" type="button" class="btn btn-outline-primary"> {{ 'paginas.comunes.ver-documento' | translate }}</button>
+           </div>
+           
+        </li>
+    </ul>
+</div>
+<app-dialog [report]="report" title="{{'paginas.principal.detalle-reporte-modal' | translate }}"></app-dialog>
+
+<div class="modal" id="dialogVisorDocument" tabindex="-1" aria-labelledby="dialogVisorDocumentLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-sm modal-lg modal-xl modal-dialog-centered">
+      <div class="modal-content" >
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ 'paginas.comunes.visor-documento-modal' |
+            translate }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body"  >
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status" *ngIf="indLoading">
+                <span class="sr-only"></span>
+            </div>
+            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status" *ngIf="indLoading">
+                <span class="sr-only"></span>
+            </div>
+            <div class="alert alert-warning" role="alert" *ngIf="mensaje !=''">
+                {{ mensaje }}
+              </div>
+            <div *ngIf="url !='' && !indLoading">
+                <h1>habilitado dialog</h1>
+                <app-visor-documento [pdfSrc]="url"></app-visor-documento>
+            </div>
+            
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ "paginas.comunes.boton-cerrar" |
+            translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
