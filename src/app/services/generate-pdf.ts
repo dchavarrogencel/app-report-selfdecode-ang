@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { ServiceUtils } from './service.utils';
 import { CONST_END_POINT_SELFCODE } from '../../environments/enviroment.variables';
-import { RequestDocument } from '../models/RequestDocument';
+import { RequestDocument } from '../models/requestDocument';
 
 @Injectable({
     providedIn: 'root'

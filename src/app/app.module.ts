@@ -22,6 +22,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { DialogComponent } from './components/shared/dialog/dialog.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { NoImagePipe } from './pipes/noimage.pipe';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
@@ -80,8 +81,8 @@ import { VisorDocumentoComponent } from './components/shared/visor-documento/vis
     }),
     MatButtonModule,
     MatIconModule,
-    BrowserAnimationsModule
-    
+    BrowserAnimationsModule,
+    ClipboardModule
   ],
   providers: [CookieService, ScriptService],
   bootstrap: [AppComponent]

@@ -1,7 +1,20 @@
-
-<form >
-    <div class="container" *ngIf="pdfSrc !=''">
-        <h1>Ingresp</h1>
-        <iframe name="idFrame" id="idFrame"  style="width: 100%; height: 100%;" src="{{  pdfSrc }}"></iframe>
-    </div>
-</form>
+<div class="card" *ngIf="pdfSrc !=''" >
+    <div class="card-body">
+    <a [href]="fileUrl" [download]="nameFile">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="40px" viewBox="0 0 43 43" stroke="currentColor">
+            <g id="Icon_feather-upload" data-name="Icon feather-upload" transform="translate(1.5 1.5)">
+                <path id="Path_1928" data-name="Path 1928"
+                    d="M44.5,22.5v8.889a4.444,4.444,0,0,1-4.444,4.444H8.944A4.444,4.444,0,0,1,4.5,31.389V22.5"
+                    transform="translate(-4.5 4.167)" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="3"></path>
+                <path id="Path_1929" data-name="Path 1929" d="M32.723,4.5,21.611,15.611,10.5,4.5"
+                    transform="translate(-1.611 11.055)" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="3"></path>
+                <path id="Path_1930" data-name="Path 1930" d="M18,31.166V4.5" transform="translate(2 -4.5)" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+            </g>
+        </svg>
+        <h5>{{ "paginas.comunes.descargar-documento" | translate }}</h5>
+    </a>
+</div>
+</div>

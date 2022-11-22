@@ -1,0 +1,14 @@
+{
+    "/tmp/pdf-reports/*":{
+        "target": "https://sd-platform-staging-userdatas3bucket-1vuokazil28t9.s3.amazonaws.com",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/service/*":{
+        "target": "https://qa-selfdecode.com",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

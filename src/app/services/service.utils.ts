@@ -16,22 +16,33 @@ export class ServiceUtils {
       'Authorization': environment.autenticacion,
       'Access-Control-Allow-Origin': '*',
       'idioma': idioma
+      //'Cookie': 'sd-lang=' +idioma,
     });
 
     return headers;
   }
   public post(endpoint: string, payload = {}, idioma: string): Observable<any> {
     const headers = this.getHeader(idioma);
-    return this.http.post(environment.api_selfdecode + endpoint, payload, { headers });
+    console.log('endpoint ' , endpoint);
+    console.log('headers ' , headers);
+    return this.http.post(endpoint, payload, { headers });
   }
 
   public get(endpoint: string, query: string, idioma: string): Observable<any> {
     const endpointFinal = endpoint + query;
     const headers = this.getHeader(idioma);
-    return this.http.get(environment.api_selfdecode + endpointFinal, { headers });
+    console.log('endpointFinal ' , endpointFinal);
+    console.log('headers ' , headers);
+    return this.http.get( endpointFinal, { headers });
   }
 
   public getImage(endpoint: string): Observable<any> {
     return this.http.get(environment.url_app+ endpoint);
+  }
+
+  downloadDocument(url: string) : Observable<Blob>{
+    let headers = new HttpHeaders();
+    headers = headers.set('Accept', 'application/pdf');
+    return this.http.get<Blob>(url, { headers: headers, responseType: 'blob' as 'json' });
   }
 }

@@ -5,12 +5,8 @@ import { environment } from '../../../environments/environment';
 import { Card } from '../../models/card';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UtilsService } from '../../services/utils.service';
-import { ScriptService } from '../shared/carousel/ScriptService ';
-import {finalize} from 'rxjs/operators';
-import { DocumentoService } from '../../services/generate-pdf';
-import { RequestDocument } from '../../models/RequestDocument';
-import { ResponseDocument } from '../../models/ResponseDocument';
-import { CONST_GENCELL } from '../../../environments/enviroment.variables';
+import { RequestDocument } from '../../models/requestDocument';
+import { ResponseDocument } from '../../models/responseDocument';
 
 @Component({
   selector: 'app-home',
@@ -35,7 +31,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private serviceReport: ReportService, private activatedRoute: ActivatedRoute, private serviceUtils: UtilsService) {
     console.log('constructor home');
-    console.log('params home ', this.activatedRoute.snapshot.params["profileId"]);
     this.requestDocumento = new RequestDocument();
     this.responseDocument = new ResponseDocument();
     localStorage.setItem('profileId', this.activatedRoute.snapshot.params["profileId"]);
@@ -72,7 +67,6 @@ export class HomeComponent implements OnInit {
     this.serviceReport.getReportsStatus(idProfile, idioma).subscribe(response => {
       this.longitud = response.length;
       for (let i = 0; i < response.length; i++) {
-        console.log("response status " + response[i].status);
         this.getExisteImage(this.RUTA_BASE_IMAGEN + response[i].report_id + this.EXTENSION_JPG, response[i].report_id);
         this.getReportById(response[i].report_id, response[i].id, idioma, response[i].status);
         this.indLoading=false;

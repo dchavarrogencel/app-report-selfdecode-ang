@@ -78,12 +78,13 @@
       "detalle-rasgo-perfil-modal": "Detalle rasgo perfil"
     },
     "comunes":{
-      "ver-documento": "Ver documento",
+      "generar-documento": "Generar documento",
       "visor-documento-modal": "Documento",
       "boton-cerrar": "Cerrar",
       "boton-detalle": "Detalle",
       "volver-inicio": "Volver inicio",
-      "pie-pagina": "Gencell Pharma Ⓒ 2022. Todos los derechos reservados."
+      "pie-pagina": "Gencell Pharma Ⓒ 2022. Todos los derechos reservados.",
+      "descargar-documento":"Descargar documento"
     }
   }
 }
