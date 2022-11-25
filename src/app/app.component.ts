@@ -3,6 +3,7 @@ import { ReportService } from './services/report.services';
 import { Report } from './models/report';
 import { environment } from '../environments/environment';
 import { ConstantLabel } from '../environments/enviroment.label';
+import { ScriptService } from './services/ScriptService ';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ export class AppComponent {
   constructor() {
   }
   ngOnInit() {
+
   }
 
   

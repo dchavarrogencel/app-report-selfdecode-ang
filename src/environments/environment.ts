@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   tipoContenido: 'application/json',
   autenticacion: 'token 3434ab21989cea68ab23b95af38e0d55d76849e6',
   api_selfdecode: 'https://qa-selfdecode.com',

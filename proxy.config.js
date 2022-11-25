@@ -1,7 +1,6 @@
-import { environment } from '../../../environments/environment';
 const PROXY_CONFIG = {
     "/tmp/pdf-reports/*": {
-        "target": environment.api_url_documento,
+        "target": 'https://sd-platform-staging-userdatas3bucket-1vuokazil28t9.s3.amazonaws.com',
         "secure": false,
         "bypass": function(req, res, proxyOptions) {
             if (req.headers.accept.indexOf("html") !== -1) {
@@ -13,7 +12,7 @@ const PROXY_CONFIG = {
 
     },
     "/service/*": {
-      "target": environment.api_selfdecode,
+      "target": 'https://qa-selfdecode.com',
       "secure": false,
       "bypass": function(req, res, proxyOptions) {
           if (req.headers.accept.indexOf("html") !== -1) {

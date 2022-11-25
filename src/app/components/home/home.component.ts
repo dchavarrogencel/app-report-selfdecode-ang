@@ -41,6 +41,7 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit() {
     console.log('constructor ngOnInit');
+  
     this.getReportsStatus(this.activatedRoute.snapshot.params["profileId"], localStorage.getItem("idioma") != null ? String(localStorage.getItem("idioma")) : environment.idioma_default);
     console.log('fin ngOnInit');
   }

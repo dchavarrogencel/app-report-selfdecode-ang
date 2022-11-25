@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, SecurityContext } from '@angular/core';
-import { ScriptService } from './ScriptService ';
+import { ScriptService } from '../../../services/ScriptService ';
 import { Report } from '../../../models/report';
 import { Router } from '@angular/router';
 import { DocumentoService } from '../../../services/generate-pdf';
@@ -80,7 +80,6 @@ export class CarouselComponent implements OnInit {
   }
 
   onClickVerDocumento(item: Report){
-    console.log('Ver documento ' , item);
     this.indLoading =true;
     this.mensaje ='';
     this.url ='';
@@ -118,6 +117,8 @@ export class CarouselComponent implements OnInit {
         let result = this.responseGetDocument.result != undefined ? this.responseGetDocument.result:"";
         this.url = result != undefined ? result:"";
         this.mensaje =  this.responseGetDocument.message != undefined  && this.url ===""? this.responseGetDocument.message: "" ;
+      }else{
+        this.mensaje =  this.responseGetDocument.message != undefined ? this.responseGetDocument.message:"";
       }
       this.indLoading =false;
       
