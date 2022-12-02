@@ -5,7 +5,7 @@ export class ResponseRecomendationTrait {
     public profile_report_id?: string
     public profile_recommendation_id?: string
     public recommendation_trait_id?: string
-    public recommendation_trait?: RecomendationTrait = new RecomendationTrait();
+    public recommendation_trait = new RecomendationTrait();
 
     public is_relevant?: boolean
     public total_score?: number

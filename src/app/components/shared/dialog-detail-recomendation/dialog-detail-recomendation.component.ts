@@ -10,11 +10,9 @@ export class DialogDetailRecomendationComponent implements OnInit {
   @Input() recomendation: ResponseRecomendation = new ResponseRecomendation();
 
   constructor() { 
-    console.log('recomendation ' , this.recomendation);
   }
 
   ngOnInit(): void {
-    console.log('recomendation ' , this.recomendation);
   }
 
 }

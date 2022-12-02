@@ -27,6 +27,6 @@ export class Report {
     public translation_verified?: boolean
     public idProfileReport?: string;
     public status?: string;
-    public seleccionado='';
+    public seleccionado=false;
     public request_id='';
 }

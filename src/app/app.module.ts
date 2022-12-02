@@ -38,6 +38,7 @@ import { DialogDetalleProfileTraitComponent } from './components/shared/dialog-d
 import { ScriptService } from './services/ScriptService ';
 import { CarouselComponent } from './components/shared/carousel/carousel.component';
 import { VisorDocumentoComponent } from './components/shared/visor-documento/visor-documento.component';
+import { ViewReportComponent } from './components/view-report/view-report.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { VisorDocumentoComponent } from './components/shared/visor-documento/vis
     DialogDetalleRecomendacionTraitComponent,
     DialogDetalleProfileTraitComponent,
     CarouselComponent,
-    VisorDocumentoComponent
+    VisorDocumentoComponent,
+    ViewReportComponent
   ],
   imports: [
     BrowserModule,

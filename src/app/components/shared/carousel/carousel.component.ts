@@ -9,6 +9,8 @@ import { ResponseGetDocument } from '../../../models/responseGetDocument';
 import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { CONST_GENCELL } from '../../../../environments/enviroment.variables';
+import { RecomendationService } from '../../../services/profile.recomendation.service';
+import { UtilsService } from '../../../services/utils.service';
 
 @Component({
   selector: 'app-carousel',
@@ -17,6 +19,9 @@ import { CONST_GENCELL } from '../../../../environments/enviroment.variables';
 })
 export class CarouselComponent implements OnInit {
   VALIDAR_ADMINISTRACION_GENERAR_PDF_SELFDECODE = 'Por favor validar con el administrador el servicio de generar el pdf esta fallando'
+  RUTA_BASE_IMAGEN = 'assets/images/';
+  EXTENSION_JPG = '.jpg';
+
   @Input() lstReportParam: Array<Report> =  new Array<Report>();
 
 
@@ -29,8 +34,9 @@ export class CarouselComponent implements OnInit {
   mensaje ='';
   url ='';
   nameFile ='';
+  indLabelReport =false;
 
-  constructor(private scriptService: ScriptService, private router: Router, private serviceDocumento : DocumentoService, private sanitizer: DomSanitizer) { 
+  constructor(private serviceUtils: UtilsService,private router: Router, private serviceDocumento : DocumentoService, private sanitizer: DomSanitizer) { 
     this.report = new Report();
     this.requestDocumento = new RequestDocument();
     this.responseDocument = new ResponseDocument();
@@ -38,34 +44,14 @@ export class CarouselComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
-    this.scriptService.loadScript('SCRIPT_PERS', 'assets/js/jquery.min-persona.js')
-    .then(data => {
-    }).catch(error => console.log(error));
-
-    this.scriptService.loadScript('SCRIPT_FLIPSTER', 'assets/js/jquery.flipster.min.js')
-    .then(data => {
-    }).catch(error => console.log(error));
-
-    this.scriptService.loadScript('SCRIPT_CARROUSEL', 'assets/js/inicio-carrousel.js')
-    .then(data => {
-    }).catch(error => console.log(error));
-    
+    console.log("lstReportParam " , this.lstReportParam);
   }
 
-  onClickHabilitarAcciones(item: Report){
-    this.indMostrarBtn=true;
-    this.inicializarSeleccionado(item);
+  onClickVerReporte(idReport: any, idProfileReport: any){
+    this.getExisteImage(this.RUTA_BASE_IMAGEN + idReport + this.EXTENSION_JPG, idReport);
+    this.router.navigate(['report' , idReport,idProfileReport ])
   }
-  inicializarSeleccionado(item: Report){
-    for(let i=0;i<this.lstReportParam.length;i++){
-      if(this.lstReportParam[i].id != item.id){
-        this.lstReportParam[i].seleccionado ='';
-      }else{
-        this.lstReportParam[i].seleccionado ='checked';
-      }
-    }
-  }
+
   onClickRecomendacion(id: any) {
     this.router.navigate(['recomendation', id])
   }
@@ -130,6 +116,38 @@ export class CarouselComponent implements OnInit {
     setTimeout(() => {
       this.generate();
     },CONST_GENCELL.DELAY_GENERAR_DOCUMENTO);
+  }
+
+  moveMouseReport(item: Report){
+    console.log('entro evento');
+    this.indLabelReport = true;
+    this.inicializarSeleccionado(item);
+  }
+
+  inicializarSeleccionado(item: Report){
+    for(let i=0;i<this.lstReportParam.length;i++){
+      if(this.lstReportParam[i].id != item.id){
+        this.lstReportParam[i].seleccionado =false;
+      }else{
+        this.lstReportParam[i].seleccionado =true;
+      }
+    }
+  }
+
+  getExisteImage(image: string , reportId: string) {
+    this.serviceUtils.getExistsImage(image).subscribe(
+      resp => {
+        localStorage.setItem(reportId,image);
+      },
+      error => {
+        if (error.status === 200) {
+          localStorage.setItem(reportId,image);
+        } else {
+          localStorage.setItem(reportId,"");
+        }
+      }
+    );
+    return '';
   }
 
 }

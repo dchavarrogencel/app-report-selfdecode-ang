@@ -1,0 +1,31 @@
+.text-uppercase{
+    color: rgb(69, 104, 249);
+}
+
+.card{
+    background-image: url('/assets/images/marcaAguaGencell.jpg');
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease 0s;
+    cursor: pointer;
+}
+
+.card:hover{
+
+  box-shadow: 5px 6px 6px 2px #e9ecef;
+  transform: scale(1.1);
+}
+
+.button {
+  color: white;
+  border: 2px solid #8707ff;
+  border-radius: 10px;
+  background-color: #8707ff;
+}
+
+.button:hover {
+  box-shadow: 2px 2px 15px #8707ff inset;
+}
+
+.button:active {
+  box-shadow: 2px 2px 20px #8707ff inset;
+}

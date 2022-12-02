@@ -20,7 +20,7 @@ export class CardsComponent implements OnInit {
   @Input() accion: string=''
   @Input() image: string=''
   @Input() responseRecomendation: ResponseRecomendation = new ResponseRecomendation();
-  @Input() responseRecomendationTrait?: ResponseRecomendationTrait =  new ResponseRecomendationTrait();
+  @Input() responseRecomendationTrait: ResponseRecomendationTrait =  new ResponseRecomendationTrait();
   @Input() reponseProfileTrait?: ReponseProfileTrait = new ReponseProfileTrait();
 
   @Output() eventEmitir: EventEmitter<ResponseRecomendation>= new EventEmitter<ResponseRecomendation>();
@@ -31,11 +31,7 @@ export class CardsComponent implements OnInit {
     this.recomendation= new ResponseRecomendation();
    }
 
-  ngOnInit(): void {
-    console.log('reponseProfileTrait feedback_choices ' , this.reponseProfileTrait?.trait?.feedback_choices);
-    console.log('responseRecomendationTrait ' , this.responseRecomendationTrait);
-    console.log('responseRecomendationTrait.satisfied_conditions ' , this.responseRecomendationTrait?.satisfied_conditions?.length);
-  }
+  ngOnInit(): void {}
 
   onClickRecomendacion(){
     this.router.navigate(['recomendation' , this.id])
@@ -47,9 +43,7 @@ export class CardsComponent implements OnInit {
     this.router.navigate(['profile-trait' , this.id])
   }
   onClickEvento(item: any){
-    console.log('item ' , item);
     this.eventEmitir.emit(item);
-    console.log('this.recomendation ' , this.recomendation);
   }
 
 }

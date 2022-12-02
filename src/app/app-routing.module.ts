@@ -4,6 +4,7 @@ import { RecomendationComponent } from './components/recomendation/recomendation
 import { RecomendationTraitComponent } from './components/recomendation-trait/recomendation-trait.component';
 import { ProfileTraitComponent } from './components/profile-trait/profile-trait.component';
 import { HomeComponent } from './components/home/home.component';
+import { ViewReportComponent } from './components/view-report/view-report.component';
 
 const ROUTES: Routes = [
   { path: '',   redirectTo: 'home', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const ROUTES: Routes = [
   { path: 'recomendation-trait/:idProfileReport', component: RecomendationTraitComponent },
   { path: 'profile-trait', component: ProfileTraitComponent },
   { path: 'profile-trait/:idProfileReport', component: ProfileTraitComponent },
+  { path: 'report/:idReport/:idProfileReport', component: ViewReportComponent },
   { path: '**', component: HomeComponent}
 ];
 

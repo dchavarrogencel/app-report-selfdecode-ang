@@ -77,6 +77,9 @@
       },
       "detalle-rasgo-perfil-modal": "Detalle rasgo perfil"
     },
+    "reporte":{
+      "titulo":"Detalle reporte"
+    },
     "comunes":{
       "generar-documento": "Generar documento",
       "visor-documento-modal": "Documento",
@@ -84,7 +87,8 @@
       "boton-detalle": "Detalle",
       "volver-inicio": "Volver inicio",
       "pie-pagina": "Gencell Pharma Ⓒ 2022. Todos los derechos reservados.",
-      "descargar-documento":"Descargar documento"
+      "descargar-documento":"Descargar documento",
+      "ver-reporte":"Ver reporte"
     }
   }
 }

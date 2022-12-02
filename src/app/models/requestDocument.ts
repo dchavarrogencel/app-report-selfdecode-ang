@@ -5,4 +5,5 @@ export class RequestDocument {
     public report_id=''
     public profile_id=''
     public company_profile = new CompanyProfile();
+    public lang ='';
 }

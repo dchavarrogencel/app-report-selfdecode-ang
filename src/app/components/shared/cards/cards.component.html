@@ -4,11 +4,13 @@
     <h5 class="card-subtitle mb-2 text-muted">{{ subtitle }}</h5>
   </div>
   <div class="card-body">
+    
     <form class="form-floating" *ngIf="responseRecomendation.recommendation.recommendation_type">
       <input disabled type="email" class="form-control" id="floatingInputValue"
         [value]="responseRecomendation.recommendation.recommendation_type">
       <label for="floatingInputValue">{{ 'paginas.recomendacion.tipo-recomendacion' |
         translate }}</label>
+        <br>
     </form>
     <img class="card-img-top" src="{{ image }}" />
     <p class="card-text" *ngIf="descripcion !=''" [innerHTML]="descripcion"></p>
@@ -17,43 +19,57 @@
         [value]="responseRecomendation.total_score">
       <label for="floatingInputValue">{{ 'paginas.recomendacion.puntaje-total' |
         translate }}</label>
+        <br>
     </form>
     <form class="form-floating" *ngIf="responseRecomendation.effect">
-      <input disabled type="email" class="form-control" id="floatingInputValue1"
-        [value]="responseRecomendation.effect">
-      <label for="floatingInputValue1">{{ 'paginas.recomendacion.efecto' |
-        translate }}</label>
+      
+      <h5 >{{ 'paginas.recomendacion.efecto' |
+        translate }}</h5>
+        <div class="progress" *ngIf="responseRecomendation.effect">
+          <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{responseRecomendation.effect*100}}%" aria-valuenow="8" aria-valuemin="8" aria-valuemax="10"></div>
+        </div>
+        
+        <br>
     </form>
     <form class="form-floating" *ngIf="responseRecomendation.evidence">
-      <input disabled type="email" class="form-control" id="floatingInputValue2"
-        [value]="responseRecomendation.evidence">
-      <label for="floatingInputValue2">{{ 'paginas.recomendacion.evidencia' |
-        translate }}</label>
+      <h5 >{{ 'paginas.recomendacion.evidencia' |
+        translate }}</h5>
+        <div class="progress" *ngIf="responseRecomendation.evidence">
+          <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{responseRecomendation.evidence*100}}%" aria-valuenow="8" aria-valuemin="8" aria-valuemax="10"></div>
+        </div>
+       
+        <br>
     </form>
 
-    <form class="form-floating" *ngIf="responseRecomendationTrait?.recommendation_trait?.initial_score">
+    <form class="form-floating" *ngIf="responseRecomendationTrait.recommendation_trait.initial_score">
       <input disabled type="email" class="form-control" id="floatingInputValue2"
-        [value]="responseRecomendationTrait?.recommendation_trait?.initial_score">
+        [value]="responseRecomendationTrait.recommendation_trait.initial_score">
       <label for="floatingInputValue2">{{ 'paginas.recomendacion-perfil.puntacion-inicial' |
         translate }}</label>
+        <br>
     </form>
     <form class="form-floating" *ngIf="responseRecomendationTrait?.total_score">
       <input disabled type="email" class="form-control" id="floatingInputValue"
-        [value]="responseRecomendationTrait?.total_score">
+        [value]="responseRecomendationTrait.total_score">
       <label for="floatingInputValue">{{ 'paginas.recomendacion-perfil.puntaje-total' |
         translate }}</label>
+        <br>
     </form>
     <form class="form-floating" *ngIf="responseRecomendationTrait?.recommendation_trait?.effect">
-      <input disabled type="email" class="form-control" id="floatingInputValue1"
-        [value]="responseRecomendationTrait?.recommendation_trait?.effect">
-      <label for="floatingInputValue1">{{ 'paginas.recomendacion-perfil.efecto' |
-        translate }}</label>
+      <h5 >{{ 'paginas.recomendacion-perfil.efecto' |
+        translate }}</h5>
+        <div class="progress" *ngIf="responseRecomendationTrait?.recommendation_trait?.effect">
+          <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{responseRecomendationTrait.recommendation_trait.effect*100}}%" aria-valuenow="8" aria-valuemin="8" aria-valuemax="10"></div>
+        </div>
+        <br>
     </form>
     <form class="form-floating" *ngIf="responseRecomendationTrait?.recommendation_trait?.evidence">
-      <input disabled type="email" class="form-control" id="floatingInputValue2"
-        [value]="responseRecomendationTrait?.recommendation_trait?.evidence">
-      <label for="floatingInputValue2">{{ 'paginas.recomendacion-perfil.evidencia' |
-        translate }}</label>
+      <h5>{{ 'paginas.recomendacion-perfil.evidencia' |
+        translate }}</h5>
+        <div class="progress" *ngIf="responseRecomendationTrait?.recommendation_trait?.evidence">
+          <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{responseRecomendationTrait.recommendation_trait.evidence*100}}%" aria-valuenow="8" aria-valuemin="8" aria-valuemax="10"></div>
+        </div>
+        <br>
     </form>
   </div>
   <div class="card-footer"

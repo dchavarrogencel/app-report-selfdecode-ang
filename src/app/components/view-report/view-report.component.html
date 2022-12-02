@@ -1,0 +1,46 @@
+
+
+    <div class="card text-center box-shadow rounded">
+      <div class="card-header">
+        <app-header (eventIdioma)="onClickActualizarIdioma($event)" titulo="{{'paginas.reporte.titulo' | translate }}"  nameButtonBack="{{
+          'paginas.comunes.volver-inicio' | translate }}"></app-header>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <h1 class="text-report-name"> {{report.name}}</h1>
+        </div>
+          <div class="col-sm">
+            <img class="card-img-top"  [src]="report.image | noimage"/>
+          </div>
+      </div>
+      <div class="row">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-detalle-tab" data-bs-toggle="tab" data-bs-target="#nav-detalle" type="button" role="tab" aria-controls="nav-detalle" aria-selected="true">{{'paginas.comunes.boton-detalle' | translate }}</button>
+            <button class="nav-link" id="nav-recomendacion-tab" data-bs-toggle="tab" data-bs-target="#nav-recomendacion" type="button" role="tab" aria-controls="nav-recomendacion" aria-selected="false">{{'paginas.recomendacion.titulo' | translate }}</button>
+            <button class="nav-link" id="nav-recomendacion-perfil-tab" data-bs-toggle="tab" data-bs-target="#nav-recomendacion-perfil" type="button" role="tab" aria-controls="nav-recomendacion-perfil" aria-selected="false">{{'paginas.recomendacion-perfil.titulo' | translate }}</button>
+            <button class="nav-link" id="nav-rasgo-perfil-tab" data-bs-toggle="tab" data-bs-target="#nav-rasgo-perfil" type="button" role="tab" aria-controls="nav-rasgo-perfil" aria-selected="false">{{'paginas.rasgo-perfil.titulo' | translate }}</button>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent" >
+          <div class="tab-pane fade show active" id="nav-detalle" role="tabpanel" aria-labelledby="nav-detalle-tab">
+            <p [innerHTML]="report.text"></p>
+          </div>
+          <div class="tab-pane fade" id="nav-recomendacion" role="tabpanel" aria-labelledby="nav-recomendacion-tab">
+            <app-recomendation [lstRecomendations]="lstRecomendations" [idProfileReport]="idProfileReport"></app-recomendation>
+          </div>
+          <div class="tab-pane fade" id="nav-recomendacion-perfil" role="tabpanel" aria-labelledby="nav-recomendacion-perfil-tab">
+            <app-recomendation-trait [idProfileReport]="idProfileReport" [lstRecomendationsTrait]="lstRecomendationsTrait"></app-recomendation-trait>
+          </div>
+          <div class="tab-pane fade" id="nav-rasgo-perfil" role="tabpanel" aria-labelledby="nav-rasgo-perfil-tab">
+            <app-profile-trait [lstProfileTrait]="lstProfileTrait" [idProfileReport]="idProfileReport"></app-profile-trait>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-muted">
+        <app-footer titulo=" {{ 'paginas.recomendacion.pie-pagina' | translate }}"></app-footer>
+      </div>
+    </div>
+   
+    
+  

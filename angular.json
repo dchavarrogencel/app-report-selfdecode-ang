@@ -34,10 +34,7 @@
               "node_modules/crypto-js/crypto-js.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "src/assets/js/jquery.flipster.min.js",
-              "src/assets/js/jquery.min-persona.js",
-              "src/assets/js/inicio-carrousel.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {
@@ -116,10 +113,7 @@
               "node_modules/crypto-js/crypto-js.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "src/assets/js/jquery.flipster.min.js",
-              "src/assets/js/jquery.min-persona.js",
-              "src/assets/js/inicio-carrousel.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           }
         }

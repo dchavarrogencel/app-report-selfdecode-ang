@@ -11,5 +11,5 @@ export const CONST_GENCELL = {
         LOGO_GENCELL: 'https://gencellpharma.com/wp-content/uploads/2022/09/Recurso-719.png',
         NOMBRE_COMPANIA: 'GENCEL GENETICA AVANZADA',
         WEB_SITE: 'https://gencellpharma.com/',
-        DELAY_GENERAR_DOCUMENTO : 20000
+        DELAY_GENERAR_DOCUMENTO : 30000
 }

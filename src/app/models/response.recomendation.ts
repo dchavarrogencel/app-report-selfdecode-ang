@@ -8,8 +8,8 @@ export class ResponseRecomendation {
 
     public is_relevant?: boolean
     public total_score?: number
-    public effect?: number
-    public evidence?: string
+    public effect: number=0
+    public evidence: number=0
 
     public was_useful?: string
 }

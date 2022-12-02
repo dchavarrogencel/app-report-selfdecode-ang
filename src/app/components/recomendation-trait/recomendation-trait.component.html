@@ -1,8 +1,4 @@
 <div class="card text-center">
-    <div class="card-header">
-      <app-header titulo="{{'paginas.recomendacion-perfil.titulo' | translate }}" (eventIdioma)="onClickActualizarIdioma($event)" nameButtonBack="{{
-        'paginas.comunes.volver-inicio' | translate }}"></app-header>
-    </div>
     <div class="card-body">
       <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status"  *ngIf="indLoading">
         <span class="sr-only"></span>
@@ -29,9 +25,6 @@
           <app-dialog-condiciones [responseRecomendationTrait]="recomendation"></app-dialog-condiciones>
         </div>
       </div>
-    </div>
-    <div class="card-footer text-muted">
-      <app-footer></app-footer>
     </div>
   </div>
   

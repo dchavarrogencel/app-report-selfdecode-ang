@@ -1,0 +1,24 @@
+.row{
+    color: rgb(69, 104, 249);
+}
+.card-img-top{
+    width: 15rem;
+    height: 15rem;
+}
+
+.text-report-name{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    align-content: center;
+    align-items: center;
+    padding: 15%;
+}
+.nav-link{
+    border: 2px solid #8707ff;
+    border-bottom: 10px;
+    border-color: #8707ff;
+}
+
+.nav-link.active{
+    background-color: rgb(69, 104, 249);
+    color: white;
+}

@@ -15,6 +15,7 @@ import { RequestDocument } from '../models/requestDocument';
     }
 
     generateDocument(request: RequestDocument, idioma:string) {
+        request.lang = idioma;
         return this.service.post( CONST_END_POINT_SELFCODE.DOCUMENTO, request,idioma).pipe( map( data => data ));
     }
   }

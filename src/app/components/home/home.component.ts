@@ -104,19 +104,5 @@ export class HomeComponent implements OnInit {
     return '';
   }
 
-  onClickHabilitarAcciones(item: Report){
-    console.log('Ingreso al evento' );
-    this.inicializarSeleccionado(item);
-  }
-  inicializarSeleccionado(item: Report){
-    for(let i=0;i<this.lstReports.length;i++){
-      if(this.lstReports[i].id != item.id){
-        this.lstReports[i].seleccionado ='';
-      }else{
-        this.lstReports[i].seleccionado ='checked';
-      }
-    }
-  }
-
  
 }
