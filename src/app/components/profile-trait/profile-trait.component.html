@@ -11,7 +11,7 @@
       </div>
       <div class="row">
         <div
-          class="col-lg-3 col-md-3 col-sm-12 col-xs-12"
+          class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
           *ngFor="let item of lstProfileTrait"
         >
           <app-cards
@@ -21,6 +21,7 @@
             [reponseProfileTrait]="item"
             (eventEmitir)="onClickProfileTrait($event)"
           ></app-cards>
+          <br>
           <app-dialog-detalle-profile-trait [reponseProfileTrait]="profile"></app-dialog-detalle-profile-trait>
           <app-dialog-descargo-responsabilidad [reponseProfileTrait]="profile"></app-dialog-descargo-responsabilidad>
           <app-dialog-etiqueta-calibre [reponseProfileTrait]="profile"></app-dialog-etiqueta-calibre>

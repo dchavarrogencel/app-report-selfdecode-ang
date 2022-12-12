@@ -22,7 +22,7 @@ export class VisorDocumentoComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.pdfSrc !=''){
-      this.pdfSrc = this.pdfSrc.replace(environment.api_url_documento,'')
+      //this.pdfSrc = this.pdfSrc.replace(environment.api_url_documento,'')
       this.downloadPdf();
     }
     

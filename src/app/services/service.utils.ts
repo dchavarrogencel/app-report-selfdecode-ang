@@ -14,24 +14,21 @@ export class ServiceUtils {
     const headers = new HttpHeaders({
       'Accept': environment.tipoContenido,
       'Content-Type': environment.tipoContenido,
-      'Authorization': environment.autenticacion,
-      'Access-Control-Allow-Origin': '*',
-      //'idioma': idioma
-      //'cookie': 'sd-lang=' +idioma,
-    });
+      'Authorization': environment.autenticacion
+     });
     this.serviceCookie.delete('Cookie');
     this.serviceCookie.set('sd-lang' ,idioma);
     return headers;
   }
   public post(endpoint: string, payload = {}, idioma: string): Observable<any> {
     const headers = this.getHeader(idioma);
-    return this.http.post( endpoint, payload, { headers, withCredentials: true });
+    return this.http.post( endpoint, payload, { headers, withCredentials: false });
   }
 
   public get(endpoint: string, query: string, idioma: string): Observable<any> {
     const endpointFinal = endpoint + query;
     const headers = this.getHeader(idioma);
-    return this.http.get( endpointFinal, { headers,withCredentials: true });
+    return this.http.get( endpointFinal, { headers,withCredentials: false });
   }
 
   public getImage(endpoint: string): Observable<any> {

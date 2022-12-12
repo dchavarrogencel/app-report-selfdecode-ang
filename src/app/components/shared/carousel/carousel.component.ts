@@ -120,8 +120,13 @@ export class CarouselComponent implements OnInit {
 
   moveMouseReport(item: Report){
     console.log('entro evento');
-    this.indLabelReport = true;
     this.inicializarSeleccionado(item);
+  }
+
+  inicializarSeleccionadoReports(){
+    for(let i=0;i<this.lstReportParam.length;i++){
+      this.lstReportParam[i].seleccionado =false;
+    }
   }
 
   inicializarSeleccionado(item: Report){

@@ -10,7 +10,7 @@ import { CONST_END_POINT_SELFCODE } from '../../environments/enviroment.variable
   export class ReportService {
     constructor(private service: ServiceUtils) { }
     getReportById(reportId: string, idioma:string) {
-         return this.service.get(CONST_END_POINT_SELFCODE.REPORT_ID , reportId,idioma).pipe( map( data => data ));
+         return this.service.get(CONST_END_POINT_SELFCODE.REPORT_ID , reportId+ "/",idioma).pipe( map( data => data ));
     }
 
     getReportsStatus(profileId: string,idioma:string) {

@@ -11,7 +11,7 @@
       </div>
       <div class="row">
         <div
-          class="col-lg-3 col-md-3 col-sm-12 col-xs-12"
+          class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
           *ngFor="let itemRecomendation of lstRecomendations"
         >
           <app-cards
@@ -21,6 +21,7 @@
             [responseRecomendation]="itemRecomendation"
             (eventEmitir)="onClickDetailRecomendation($event)"
           ></app-cards>
+          <br>
           <app-dialog-detail-recomendation [recomendation]="recomendation"></app-dialog-detail-recomendation>
         </div>
       </div>

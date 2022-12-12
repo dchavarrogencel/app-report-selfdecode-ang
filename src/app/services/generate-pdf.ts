@@ -3,6 +3,7 @@ import { map } from 'rxjs/operators';
 import { ServiceUtils } from './service.utils';
 import { CONST_END_POINT_SELFCODE } from '../../environments/enviroment.variables';
 import { RequestDocument } from '../models/requestDocument';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({
     providedIn: 'root'

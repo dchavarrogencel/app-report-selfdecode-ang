@@ -91,12 +91,12 @@
 
       <button type="button" class="btn btn-outline-primary" data-bs-target="#dialogDetalleProfile"  data-bs-toggle="modal"
         *ngIf="reponseProfileTrait?.personalized_text  != undefined && reponseProfileTrait?.personalized_text !=''"
-     (click) ="onClickEvento(responseRecomendation)">
+        (click) ="onClickEvento(reponseProfileTrait)">
         {{ 'paginas.comunes.boton-detalle' |
         translate }}
       </button>
       <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-        *ngIf="responseRecomendationTrait?.satisfied_conditions?.length != undefined && responseRecomendationTrait?.satisfied_conditions?.length != 0"
+        *ngIf="responseRecomendationTrait.satisfied_conditions != undefined && responseRecomendationTrait?.satisfied_conditions?.length != 0"
         data-bs-target="#dialogCondiciones"
         (click) ="onClickEvento(responseRecomendationTrait)">
         {{ 'paginas.recomendacion-perfil.boton-ver-condiciones' |
@@ -109,7 +109,7 @@
         translate }}
       </button>
       <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-        *ngIf="reponseProfileTrait?.trait?.feedback_choices?.length != undefined && reponseProfileTrait?.trait?.feedback_choices?.length != 0"
+        *ngIf="reponseProfileTrait?.trait?.feedback_choices != undefined && reponseProfileTrait?.trait?.feedback_choices?.length != 0"
         data-bs-target="#dialogOpcionesRetroa"
         (click) ="onClickEvento(reponseProfileTrait)">
         {{ 'paginas.rasgo-perfil.boton-opciones-retroalimentacion' |
@@ -122,7 +122,7 @@
         translate }}
       </button>
       <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-        *ngIf="reponseProfileTrait?.trait?.gauge_labels?.length != undefined && reponseProfileTrait?.trait?.gauge_labels?.length != 0"
+        *ngIf="reponseProfileTrait?.trait?.gauge_labels != undefined && reponseProfileTrait?.trait?.gauge_labels?.length != 0"
         data-bs-target="#dialogEtiquetaCalibre"
         (click) ="onClickEvento(reponseProfileTrait)">
         {{ 'paginas.rasgo-perfil.boton-etiqueta-calibre' |

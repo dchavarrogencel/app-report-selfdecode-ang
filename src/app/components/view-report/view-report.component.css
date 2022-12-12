@@ -15,7 +15,7 @@
 .nav-link{
     border: 2px solid #8707ff;
     border-bottom: 10px;
-    border-color: #8707ff;
+    border-color: rgb(69, 104, 249);
 }
 
 .nav-link.active{
