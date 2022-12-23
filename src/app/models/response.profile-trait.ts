@@ -1,5 +1,9 @@
 import { Trait } from './trait';
 import { GeneticVariants } from './genetic.variants';
+/**
+ * Modelo que hace referencia response rasgo perfil
+ * @author dchavarro
+ */
 export class ReponseProfileTrait {
     public id?: string
     public profile_id?: string

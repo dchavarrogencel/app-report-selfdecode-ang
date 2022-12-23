@@ -1,5 +1,9 @@
 import { FeedbackChoices } from './feedback.choices';
 import { GaugeLabels } from './gauge.labels';
+/**
+ * Modelo que hace referencia rasgo
+ * @author dchavarro
+ */
 export class Trait {
     public id?: string
     public name?: string =''

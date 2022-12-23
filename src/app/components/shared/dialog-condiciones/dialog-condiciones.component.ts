@@ -6,6 +6,10 @@ import { ResponseRecomendationTrait } from '../../../models/response.recomendati
   templateUrl: './dialog-condiciones.component.html',
   styleUrls: ['./dialog-condiciones.component.css']
 })
+/**
+ * Clase encargada de realizar la implementación de modal de condiciones
+ * @autor dchavarro
+ */
 export class DialogCondicionesComponent implements OnInit {
 
   @Input() responseRecomendationTrait?: ResponseRecomendationTrait =  new ResponseRecomendationTrait();

@@ -1,5 +1,9 @@
 import { RecomendationTrait } from './recomendation.trait';
 import { SatisfiedConditions } from './satisfied.conditions';
+/**
+ * Modelo que hace referencia respuesta de recomendacion de rasgo
+ * @author dchavarro
+ */
 export class ResponseRecomendationTrait {
     public id?: string
     public profile_report_id?: string

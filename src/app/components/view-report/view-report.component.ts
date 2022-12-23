@@ -16,6 +16,10 @@ import { ProfileTraitService } from '../../services/profile.trait.service';
   templateUrl: './view-report.component.html',
   styleUrls: ['./view-report.component.css']
 })
+/**
+ * Clase encargada de realizar la implementación de detalle del reporte
+ * @autor dchavarro
+ */
 export class ViewReportComponent implements OnInit {
 
   report: Report = new Report();
@@ -25,7 +29,15 @@ export class ViewReportComponent implements OnInit {
   lstRecomendations: Array<ResponseRecomendation>;
   lstRecomendationsTrait: Array<ResponseRecomendationTrait>;
   lstProfileTrait: Array<ReponseProfileTrait>;
-  
+  /**
+   * Metodo encargado de instanciar objetos requeridos y los servicios
+   * @param serviceProfileTrait 
+   * @param serviceRecomendationTrait 
+   * @param serviceRecomendation 
+   * @param serviceReport 
+   * @param activatedRoute 
+   * @param serviceUtils 
+   */
   constructor(private serviceProfileTrait: ProfileTraitService,private serviceRecomendationTrait: RecomendationTraitService,private serviceRecomendation: RecomendationService,private serviceReport: ReportService, private activatedRoute: ActivatedRoute, private serviceUtils: UtilsService) { 
     console.log('params ' , this.activatedRoute.snapshot);
     this.idioma =  localStorage.getItem("idioma") != null ? String(localStorage.getItem("idioma")) : environment.idioma_default;
@@ -42,7 +54,9 @@ export class ViewReportComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  /**
+   * Metodo encargado de obtener las recomendaciones asociada al paciente
+   */
   getRecomendation(){
     this.serviceRecomendation.getRecomendation(this.idProfileReport, this.idioma).subscribe(response =>{
       this.lstRecomendations  = response;
@@ -51,14 +65,19 @@ export class ViewReportComponent implements OnInit {
       }
     })
   }
-
+  /**
+   * Metodo encargado de obtener los reporte por id
+   */
   getReportId(){
     this.serviceReport.getReportById(this.idReport, this.idioma).subscribe(response => {
       this.report = response;
       this.report.image = String(localStorage.getItem(this.idReport));
     });
   }
-
+  /**
+   * Metodo encargado de actualizar el idioma y invocar los servicios con el nuevo el idioma
+   * @param e 
+   */
   onClickActualizarIdioma(e:any){
     console.log('actualizar idioma ' , e)
     this.idioma =e;
@@ -69,12 +88,17 @@ export class ViewReportComponent implements OnInit {
     this.getRecomendationProfileTrait();
 
   }
-
+  /**
+   * Metodo encargado de obtener las recomendacion del perfil
+   */
   getRecomendationTrait(){
     this.serviceRecomendationTrait.getRecomendationTrait(this.idProfileReport, this.idioma).subscribe(response =>{
       this.lstRecomendationsTrait  = response;
     })
   }
+  /**
+   * Metodo encargado de la recomendacion de perfil de rasgo
+   */
   getRecomendationProfileTrait(){
     this.serviceProfileTrait.getProfileTrait(this.idProfileReport, this.idioma).subscribe(response =>{
       this.lstProfileTrait  = response;

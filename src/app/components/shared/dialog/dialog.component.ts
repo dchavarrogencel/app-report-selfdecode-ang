@@ -6,6 +6,10 @@ import { Report } from '../../../models/report';
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.css']
 })
+/**
+ * Clase encargada de realizar la implementación de modal
+ * @autor dchavarro
+ */
 export class DialogComponent implements OnInit {
   @Input() report: Report = new  Report();
   @Input() title: string =''

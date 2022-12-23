@@ -1,3 +1,7 @@
+/**
+ * Modelo que hace referencia etiquetas de calibre
+ * @author dchavarro
+ */
 export class GaugeLabels {
     public id?: string
     public label_text?: string

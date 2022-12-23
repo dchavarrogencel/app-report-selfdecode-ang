@@ -7,31 +7,39 @@
     transform-style: preserve-3d;
     transition: transform 0.4s ease 0s;
     cursor: pointer;
+    border: 1px solid;
+    border-radius: 20px 20px 20px 20px;
 }
 
 .card:hover{
   box-shadow: 5px 6px 6px 2px #e9ecef;
   transform: scale(1.1);
 }
+.card-subtitle{
+  font-size: 3ch;
+  color: #666F88;
+}
+
+.card-title{
+  color: #a3a8b7;
+}
 
 .img-miniatura{
   box-sizing: border-box;
-  margin: 0px;
-  min-width: 0px;
-  width: 40px;
-  height: 40px;
+  width: 65px;
+  height: 65px;
   position: absolute;
   top: -15px;
-  left: 280px;
-  border-radius: 50%;
+  left: 260px;
   background-color: rgb(255, 255, 255);
-  box-shadow: rgb(155 162 180 / 20%) 0px 0px 10px;
-  z-index: 5;
+  box-shadow: rgb(155 162 180 / 80%) 0px 0px 10px;
   -webkit-box-pack: center;
   justify-content: center;
   -webkit-box-align: center;
   align-items: center;
   display: flex;
+  border: 3px solid white;
+  border-radius: 20px 20px 20px 20px;
 }
 .button {
   color: white;

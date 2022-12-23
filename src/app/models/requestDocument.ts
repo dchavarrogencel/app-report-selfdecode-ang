@@ -1,4 +1,8 @@
 import { CompanyProfile } from './companyProfile';
+/**
+ * Modelo que hace referencia request requerido del documento
+ * @author dchavarro
+ */
 export class RequestDocument {
     public white_labelled: boolean=true;
     public recommendation_type ='full';

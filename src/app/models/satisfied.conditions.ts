@@ -1,3 +1,7 @@
+/**
+ * Modelo que hace referencia condiciones satisfechas
+ * @author dchavarro
+ */
 export class SatisfiedConditions {
     public id?: string
     public conditional_score?: number

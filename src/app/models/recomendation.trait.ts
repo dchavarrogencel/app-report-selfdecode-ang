@@ -1,3 +1,7 @@
+/**
+ * Modelo que hace referencia recomendacion de perfil
+ * @author dchavarro
+ */
 export class RecomendationTrait {
     public id?: string
     public recommendation_id?: string

@@ -1,4 +1,8 @@
 import {  Recomendation } from './recomendation';
+/**
+ * Modelo que hace referencia respuesta recomendacion
+ * @author dchavarro
+ */
 export class ResponseRecomendation {
     public id?: string
     public profile_report_id?: string

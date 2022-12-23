@@ -1,3 +1,7 @@
+/**
+ * Modelo que hace referencia reporte
+ * @author dchavarro
+ */
 export class Report {
     public id: string='';
     public name?: string

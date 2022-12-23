@@ -1,3 +1,6 @@
+/**
+ * End point de selfdecode
+ */
 export const CONST_END_POINT_SELFCODE = { 
         PROFILE_RECOMENDATION: '/service/reports/profile-recommendation/?profile_report_id=',
         PROFILE_RECOMENDATION_TRAIT: '/service/reports/profile-recommendation-trait/?profile_report_id=',
@@ -7,6 +10,9 @@ export const CONST_END_POINT_SELFCODE = {
         DOCUMENTO: '/service/pdf-generation-api/reports-pdf-report/',
         
 }
+/**
+ * Constantes fijas de datos de gencell
+ */
 export const CONST_GENCELL = {
         LOGO_GENCELL: 'https://gencellpharma.com/wp-content/uploads/2022/09/Recurso-719.png',
         NOMBRE_COMPANIA: 'GENCEL GENETICA AVANZADA',

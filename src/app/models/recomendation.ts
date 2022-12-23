@@ -1,3 +1,7 @@
+/**
+ * Modelo que hace referencia recomendacion
+ * @author dchavarro
+ */
 export class Recomendation {
     public id?: string
     public report_id?: string

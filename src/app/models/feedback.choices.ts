@@ -1,3 +1,7 @@
+/**
+ * Modelo que hace referencia las opciones de comentarios
+ * @author dchavarro
+ */
 export class FeedbackChoices {
     public id?: string
     public answer_text?: string

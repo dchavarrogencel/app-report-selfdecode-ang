@@ -13,6 +13,10 @@ import { ResponseDocument } from '../../models/responseDocument';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+/**
+ * Clase encarga de realizar la implementación requerida para la cabecera
+ * @autor dchavarro
+ */
 export class HomeComponent implements OnInit {
 
 
@@ -28,25 +32,39 @@ export class HomeComponent implements OnInit {
   longitud =0;
   requestDocumento: RequestDocument;
   responseDocument: ResponseDocument;
-
+  /**
+   * Constructor encargado de instanciar los objetos requeridos
+   * @param serviceReport 
+   * @param activatedRoute 
+   * @param serviceUtils 
+   */
   constructor(private serviceReport: ReportService, private activatedRoute: ActivatedRoute, private serviceUtils: UtilsService) {
     console.log('constructor home');
     this.requestDocumento = new RequestDocument();
     this.responseDocument = new ResponseDocument();
+    //Se obtiene el profile id enviando desde la aplicación de resultado
     localStorage.setItem('profileId', this.activatedRoute.snapshot.params["profileId"]);
     this.card = new Card();
     this.report = new Report();
     this.lstReports = new Array<Report>();
     console.log('fin constrcutor');
   }
+  /**
+   * Metodo encargado de consumir el servicio de obtener el profile id
+   */
   ngOnInit() {
     console.log('constructor ngOnInit');
   
     this.getReportsStatus(this.activatedRoute.snapshot.params["profileId"], localStorage.getItem("idioma") != null ? String(localStorage.getItem("idioma")) : environment.idioma_default);
     console.log('fin ngOnInit');
   }
-
-
+  /**
+   * Metodo encargado de consumir el servicio del selfdecode por el reporte id
+   * @param idReport 
+   * @param idProfileReport 
+   * @param idioma 
+   * @param status 
+   */
   getReportById(idReport: string, idProfileReport: string, idioma: string, status: Boolean) {
     this.serviceReport.getReportById(idReport, idioma).subscribe(response => {
       response.idProfileReport = idProfileReport;
@@ -62,7 +80,11 @@ export class HomeComponent implements OnInit {
       localStorage.removeItem(idReport+idProfileReport);
     })
   }
-
+  /**
+   * Metodo de obtener los reportes asociado al paciente
+   * @param idProfile 
+   * @param idioma 
+   */
   getReportsStatus(idProfile: string, idioma: string) {
     this.indLoading=true;
     this.serviceReport.getReportsStatus(idProfile, idioma).subscribe(response => {
@@ -79,15 +101,22 @@ export class HomeComponent implements OnInit {
     })
     
   }
-
+  /**
+   * Metodo encargado de volver a consumir los servicios cuando se realiza el cambio idioma
+   * @param e 
+   */
   onClickActualizarIdioma(e: any) {
     console.log('actualizar idioma ', e)
     console.log('params home ', this.activatedRoute.snapshot);
     this.lstReports = new Array<Report>();
     this.getReportsStatus(this.activatedRoute.snapshot.params["profileId"], e);
   }
-
- 
+  /**
+   * Metodo encargo de validar si existe la imagen asociada al id reporte
+   * @param image 
+   * @param reportId 
+   * @returns 
+   */
   getExisteImage(image: string , reportId: string) {
     this.serviceUtils.getExistsImage(image).subscribe(
       resp => {
