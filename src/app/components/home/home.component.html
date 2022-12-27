@@ -11,6 +11,9 @@
         <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status" *ngIf="lstReports.length!=longitud">
             <span class="sr-only"></span>
         </div>
+        <div class="alert alert-warning" role="alert" *ngIf="lstReports.length==0 && longitud==0">
+            {{ "paginas.principal.mensaje-no-tiene-registro" | translate }}
+          </div>
         <div *ngIf="lstReports.length==longitud && lstReports.length>0">
             
             <app-carousel [lstReportParam]="lstReports"></app-carousel>

@@ -35,7 +35,6 @@ import { DialogOpcionesRetroalimentacionComponent } from './components/shared/di
 import { DialogEtiquetaCalibreComponent } from './components/shared/dialog-etiqueta-calibre/dialog-etiqueta-calibre.component';
 import { DialogDetalleRecomendacionTraitComponent } from './components/shared/dialog-detalle-recomendacion-trait/dialog-detalle-recomendacion-trait.component';
 import { DialogDetalleProfileTraitComponent } from './components/shared/dialog-detalle-profile-trait/dialog-detalle-profile-trait.component';
-import { ScriptService } from './services/ScriptService ';
 import { CarouselComponent } from './components/shared/carousel/carousel.component';
 import { VisorDocumentoComponent } from './components/shared/visor-documento/visor-documento.component';
 import { ViewReportComponent } from './components/view-report/view-report.component';
@@ -86,7 +85,7 @@ import { ViewReportComponent } from './components/view-report/view-report.compon
     BrowserAnimationsModule,
     ClipboardModule
   ],
-  providers: [CookieService, ScriptService],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

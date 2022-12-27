@@ -43,7 +43,7 @@ export class ServiceUtils {
    */
   public post(endpoint: string, payload = {}, idioma: string): Observable<any> {
     const headers = this.getHeader(idioma);
-    return this.http.post( endpoint, payload, { headers, withCredentials: false });
+    return this.http.post(environment.api_selfdecode + endpoint, payload, { headers, withCredentials: false });
   }
   /**
    * Metodo encargado de consumir el servicio de tipo get
@@ -55,7 +55,7 @@ export class ServiceUtils {
   public get(endpoint: string, query: string, idioma: string): Observable<any> {
     const endpointFinal = endpoint + query;
     const headers = this.getHeader(idioma);
-    return this.http.get( endpointFinal, { headers,withCredentials: false });
+    return this.http.get(environment.api_selfdecode + endpointFinal, { headers,withCredentials: false });
   }
    /**
    * Metodo encargado de consumir el servicio de tipo get para obtener la imagen personalizada
