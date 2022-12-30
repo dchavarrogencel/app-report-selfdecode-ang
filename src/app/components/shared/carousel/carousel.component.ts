@@ -22,6 +22,7 @@ import { UtilsService } from '../../../services/utils.service';
 export class CarouselComponent implements OnInit {
   VALIDAR_ADMINISTRACION_GENERAR_PDF_SELFDECODE = 'Por favor validar con el administrador el servicio de generar el pdf esta fallando'
   RUTA_BASE_IMAGEN = 'assets/images/';
+  MINIATURAS = 'miniaturas/';
   EXTENSION_JPG = '.jpg';
 
   @Input() lstReportParam: Array<Report> =  new Array<Report>();

@@ -11,6 +11,7 @@ export class AppComponent {
  
 
   constructor() {
+    localStorage.clear();
   }
   ngOnInit() {
 

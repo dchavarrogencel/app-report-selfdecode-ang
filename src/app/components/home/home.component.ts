@@ -21,7 +21,9 @@ export class HomeComponent implements OnInit {
 
 
   RUTA_BASE_IMAGEN = 'assets/images/';
+  MINIATURAS = 'miniaturas/';
   EXTENSION_JPG = '.jpg';
+  EXTENSION_PNG = '.png';
   VER_ACCIONES='Ver acciones';
   report: Report;
   card: Card;
@@ -68,6 +70,10 @@ export class HomeComponent implements OnInit {
   getReportById(idReport: string, idProfileReport: string, idioma: string, status: Boolean) {
     this.serviceReport.getReportById(idReport, idioma).subscribe(response => {
       response.idProfileReport = idProfileReport;
+      for(let i=0;i<response.area.length;i++){
+        response.imgCategoria =  this.RUTA_BASE_IMAGEN + this.MINIATURAS + response.area[i] + this.EXTENSION_PNG;
+        break;
+      }
       response.status = status;
       if (localStorage.getItem(idReport) != undefined && localStorage.getItem(idReport) != "") {
         response.image = localStorage.getItem(idReport);
@@ -132,6 +138,28 @@ export class HomeComponent implements OnInit {
     );
     return '';
   }
+
+   /**
+   * Metodo encargo de validar si existe la imagen asociada al id reporte
+   * @param image 
+   * @param reportId 
+   * @returns 
+   */
+   getExisteImageMiniatura(image: string , categoria: string) {
+    this.serviceUtils.getExistsImage(image).subscribe(
+      resp => {
+        localStorage.setItem(categoria,image);
+      },
+      error => {
+        if (error.status === 200) {
+          localStorage.setItem(categoria,image);
+        } else {
+          localStorage.setItem(categoria,"");
+        }
+      }
+    );
+    return '';
+   }
 
  
 }

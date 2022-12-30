@@ -33,4 +33,5 @@ export class Report {
     public status?: string;
     public seleccionado=false;
     public request_id='';
+    public imgCategoria='';
 }
